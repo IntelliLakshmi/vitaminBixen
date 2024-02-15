@@ -1,0 +1,102 @@
+[
+  {
+    "id": "vitamin-d-90-100",
+    "name": "D-vitamin, 90ug, 100 stk",
+    "price": 116,
+    "currency": "DKK",
+    "rebateQuantity": 3,
+    "rebatePercent": 10,
+    "upsellProductId": null,
+    "img": "https://www.med24.dk/imgsrv/2020-10-23/31528/1/d-max-100-g-90-tyggetabl.jpg?c=IhGJlU"
+  },
+  {
+    "id": "vitamin-c-500-250",
+    "name": "C-vitamin, 500mg, 250 stk",
+    "price": 150,
+    "currency": "DKK",
+    "rebateQuantity": 2,
+    "rebatePercent": 25,
+    "upsellProductId": "vitamin-c-depot-500-250",
+    "img": "https://imagecache.nomeco.dk/image/209048/medium"
+  },
+  {
+    "id": "vitamin-c-depot-500-250",
+    "name": "C-vitamin Depot, 500mg, 250 stk",
+    "price": 175,
+    "currency": "DKK",
+    "rebateQuantity": 3,
+    "rebatePercent": 10,
+    "upsellProductId": null,
+    "img": "https://apopro.dk/Images/c-vitamin-500-med-hyben-kosttilskud-240-stk-209048"
+  },
+  {
+    "id": "fish-oil-1000-120",
+    "name": "Omega 3 fiskeolie, 1000mg, 120 stk",
+    "price": 69,
+    "currency": "DKK",
+    "rebateQuantity": 5,
+    "rebatePercent": 10,
+    "upsellProductId": null,
+    "img": "https://www.pricerunner.dk/product/640x640/1576957364/Apovit-Omega-3-1000mg-120-stk.jpg?ph=true"
+  },
+  {
+    "id": "omnimin-300",
+    "name": "Omnimin - 300 tabl.",
+    "price": 469,
+    "currency": "DKK",
+    "rebateQuantity": 2,
+    "rebatePercent": 33,
+    "upsellProductId": "omnimin-300-plastic",
+    "img": "https://www.med24.dk/imgsrv/2024-01-25/96572/1/3690.jpg?c=IzoCj3"
+  },
+  {
+    "id": "vitamin-b12-vegansk",
+    "name": "B12-vitamin, 500 mcg - 90 tabl.",
+    "price": 169,
+    "currency": "DKK",
+    "rebateQuantity": 2,
+    "rebatePercent": 20,
+    "upsellProductId": null,
+    "img": "https://www.med24.dk/imgsrv/2020-12-07/32657/8/b12-500mcg-frit.png?c=IhGgjz"
+  },
+  {
+    "id": "vitamin-puori-d3-120",
+    "name": "Puori D3-vitamin 62,5 ug - 120 kap",
+    "price": 149,
+    "currency": "DKK",
+    "rebateQuantity": 4,
+    "rebatePercent": 50,
+    "upsellProductId": "vitamin-puori-d3-vegansk",
+    "img": "https://www.med24.dk/imgsrv/2017-10-09/3725/1/puori-d3-vitamin-62-5-g-120-kap.jpg?c=IhGM8r"
+  },
+  {
+    "id": "vitayummy-kids-multi-cola-60",
+    "name": "VitaYummi Kids Multi Cola - 60 stk.",
+    "price": 159,
+    "currency": "DKK",
+    "rebateQuantity": 2,
+    "rebatePercent": 10,
+    "upsellProductId": null,
+    "img": "https://www.med24.dk/imgsrv/2023-01-02/68603/1/vitayummy-kids-multi-cola-60-stk.jpg?c=IioOvI"
+  },
+  {
+    "id": "vitayummy-hair-nails-raspberry-60",
+    "name": "VitaYummy Hair & Nails Raspberry - 60 stk.",
+    "price": 159,
+    "currency": "DKK",
+    "rebateQuantity": 0,
+    "rebatePercent": 0,
+    "upsellProductId": "vitayummy-hair-nails-raspberry-vegansk",
+    "img": "https://www.med24.dk/imgsrv/2024-02-14/98269/1/vitayummy-hair-og-nails-raspberry-60-stk.jpg?c=IzaseN"
+  },
+  {
+    "id": "vitamin-a-1500-90",
+    "name": "A-vitamin, 1500 mcg - 90 tabl.",
+    "price": 99,
+    "currency": "DKK",
+    "rebateQuantity": 0,
+    "rebatePercent": 0,
+    "upsellProductId": null,
+    "img": "https://www.med24.dk/imgsrv/2022-01-17/49954/1/a-vitamin-1500-mcg-90-tabl.jpg?c=I1FMRc"
+  }
+]
