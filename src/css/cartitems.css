@@ -11,3 +11,28 @@ li {
     font-size: small;
 }
 
+img {
+    float: left;
+    width: 200px;
+    height: 200px;
+}
+
+.itemBoxSize {
+    width: 100%;
+    height: 200px;
+}
+
+.textMoveDown20px {
+    position: relative;
+    top: 20px
+}
+
+.textMoveDown60px {
+    position: relative;
+    top: 60px;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+}

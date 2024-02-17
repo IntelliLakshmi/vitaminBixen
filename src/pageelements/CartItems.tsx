@@ -17,7 +17,15 @@ interface ItemProps {
 const Item: React.FC<ItemProps> = ({ product }) => {
     return (
         <>
-            <p>Hello, {product.currency}</p>
+            <div className={"marginLeftRight30px itemBoxSize"}>
+                <img src={product.img} alt="Image of product"/>
+                <p className={"textSizeXLarge textMoveDown20px"}>{product.name}</p>
+                <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
+                <p className={"textSizeSmall textMoveDown60px icon-text"}>
+                    <i className="material-icons">check_circle</i> På lager - Levering i morgen (bestil inden 22:00)
+                </p>
+            </div>
+            <hr className={"marginLeftRight30px"}/>
         </>
     )
 }
