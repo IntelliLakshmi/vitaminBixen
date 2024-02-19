@@ -7,7 +7,7 @@ function CheckoutTotal() {
   return (
     <>
     <div className="container">
-      <p className="delivery">Fragt PostNord forventet levering {DeliveryDate()}</p>
+      <DeliveryDate/>
       <p className="amount">0.00 kr.</p>        
     </div>
     <div className="container">

@@ -7,7 +7,11 @@ export default function deliveryDate() {
     const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
     const year = currentDate.getFullYear().toString();
 
-    return `${day}-${month}-${year}`;
+    return(
+        <>
+            <p className="delivery">Fragt PostNord forventet levering {day}-{month}-{year}</p>
+        </> 
+    )     
 }
 
 
