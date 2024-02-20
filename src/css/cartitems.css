@@ -1,0 +1,63 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    float: right;
+    margin-right: 120px;
+    font-size: small;
+}
+
+img {
+    float: left;
+    width: 200px;
+    height: 200px;
+}
+
+.cartImage{
+    height: 155px;
+    object-fit: contain;
+}
+
+.itemBoxSize {
+    width: 100%;
+}
+
+.textMoveDown20px {
+    position: relative;
+    top: 20px
+}
+
+.textMoveDown65px {
+    position: relative;
+    top: 65px;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+}
+
+.deliveryText{
+    align-items: center;
+}
+
+.marginLeft10px {
+    margin-left: 10px;
+}
+
+.titelText{
+    margin-bottom: 6px;
+}
+
+.itemCounter{
+    width: 90px;
+    height: 22px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    justify-content: space-around;
+    align-items: center;
+}

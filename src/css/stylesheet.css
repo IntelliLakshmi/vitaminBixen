@@ -1,0 +1,72 @@
+/* Apply to all HTML elements */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Standard CSS Text Sizes */
+.textSizeXXXLarge {
+    font-size: xxx-large;
+}
+
+.textSizeXXLarge {
+    font-size: xx-large;
+}
+
+.textSizeXLarge {
+    font-size: x-large;
+    margin: 0;
+}
+
+.textSizeLarge {
+    font-size: large;
+    margin: 0;
+}
+
+.textSizeMedium {
+    font-size: medium;
+    margin: 0;
+}
+
+.textSizeSmall {
+    font-size: small;
+    margin: 0;
+}
+
+/* Margins Left Right*/
+
+.marginLeftRight30px {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.marginTopBottom25px {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Margins Left */
+
+.marginLeft45px {
+    margin-left: 45px;
+}
+
+/* Margins Right */
+
+.marginRight160px {
+    margin-right: 160px;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.clickable {
+    cursor: pointer;
+    user-select: none;
+}
