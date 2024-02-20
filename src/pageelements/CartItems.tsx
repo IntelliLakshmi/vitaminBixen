@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from 'react';
 import '../css/cartitems.css'
 import data from '../data/product.json'
@@ -24,66 +23,31 @@ const initialBasket: ItemProps[] =
         amount: 1,
         giftWrap: false}));
 
+ 
+ export default function cartItems(){
     const [basket, setBasket] = useState(initialBasket);
 
-
-function plusAmount(productID: string) {
-    setBasket(basket.map(item => {
-        if (item.id === productID) {
-            return { ...item, amount: item.amount + 1 };
-        } else {
-            return item;
-        }}))
-}
-function minusAmount(productID: string) {
-    setBasket(basket.map(item => {
-        if (item.id === productID && item.amount > 1) {
-            return { ...item, amount: item.amount - 1 };
-        } else {
-            return item;
-        }}))
-}
-
-function getTotalPrice(productID: string) :number {
-    basket.map(item => {
-        if (item.id === productID) {
-            return item.price * item.amount;
-        }})
-        return 0;
-}
-
-// Creates a product item
-function displayItem(product: ItemProps) : JSX.Element {
-    return (
-        <>
-            <div className={"marginLeftRight30px marginTopBottom25px itemBoxSize flexRow"}>
-                <img src={product.img} alt="Image of product" className="cartImage"/>
-                <div className="flexColumn">
-                    <p className={"textSizeXLarge titelText"}>{product.name}</p>
-                    <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
-                    <div className="flexRow deliveryText textMoveDown65px">
-                        <i className="material-icons">check_circle</i>
-                        <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
-                    </div>
-                    
-                </div>
-                <ul>
-                    <li>{product.price} {product.currency}</li>
-                    <li>{product.price} {product.currency}</li>
-                    <li>{getTotalPrice(product.id)}</li>
-                    <li><div className="itemCounter flexRow">
-                        <p className="textSizeLarge clickable" onClick={() => minusAmount(product.id)}>-</p>
-                        <p className="textSizeMedium">{product.amount}</p>
-                        <p className="textSizeLarge clickable" onClick={() => plusAmount(product.id)}>+</p></div>
-                    </li>
-                </ul>
-            </div>
-            <hr className={"marginLeftRight30px"}/>
-        </>
-    )
-}
-
-// The function returned to App.tsx
+    function plusAmount(productID: string) {
+        setBasket(basket.map(item => {
+            if (item.id === productID) {
+                return { ...item, amount: item.amount + 1 };
+            } else {
+                return item;
+            }}))
+    }
+    function minusAmount(productID: string) {
+        setBasket(basket.map(item => {
+            if (item.id === productID && item.amount > 1) {
+                return { ...item, amount: item.amount - 1 };
+            } else {
+                return item;
+            }}))
+    }
+    
+    function getTotalPrice(productID: string): number {
+        const product = basket.find(item => item.id === productID);
+        return product ? product.price * product.amount : 0;
+    }
 
     return (
         <>
@@ -99,9 +63,40 @@ function displayItem(product: ItemProps) : JSX.Element {
             <br/>
             <hr className={"marginLeftRight30px"}/>
             <div>
-                displayItem(basket[0]);
+                {basket.map(product => displayItem(product))}
             </div>
         </>
     )
+
+    // Creates a product item
+    function displayItem(product: ItemProps) {
+        return (
+            <>
+                <div className={"marginLeftRight30px marginTopBottom25px itemBoxSize flexRow"}>
+                    <img src={product.img} alt="Image of product" className="cartImage"/>
+                    <div className="flexColumn">
+                        <p className={"textSizeXLarge titelText"}>{product.name}</p>
+                        <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
+                        <div className="flexRow deliveryText textMoveDown65px">
+                            <i className="material-icons">check_circle</i>
+                            <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
+                        </div>
+                        
+                    </div>
+                    <ul>
+                        <li>{product.price} {product.currency}</li>
+                        <li>{product.price} {product.currency}</li>
+                        <li>{getTotalPrice(product.id)}{product.currency}</li>
+                        <li><div className="itemCounter flexRow">
+                            <p className="textSizeLarge clickable" onClick={() => minusAmount(product.id)}>-</p>
+                            <p className="textSizeMedium">{product.amount}</p>
+                            <p className="textSizeLarge clickable" onClick={() => plusAmount(product.id)}>+</p></div>
+                        </li>
+                    </ul>
+                </div>
+                <hr className={"marginLeftRight30px"}/>
+            </>
+        )
+    }
 }
-export default BasketList();
+
