@@ -26,7 +26,7 @@ function App() {
         </nav>
       </div>
       <div className="cart">
-        <button type="submit">🔍</button>
+        <button type="submit">🛒</button>
         <span>Kurv</span> {/* ersatte med kruv icon */}
       </div>
       
