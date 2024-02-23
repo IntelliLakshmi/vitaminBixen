@@ -22,13 +22,17 @@ function App() {
         <a href="#c">C Vitaminer</a>
         <a href="#d">D Vitaminer</a>
         <a href="#b">B Vitaminer</a>
+        <div className ='more' >
         <a href="#more">Mere</a>
+        <button type="submit">☰</button>
+        </div>
+        <div className="cartHeader">
+          <button type="submit">🛒</button>
+          <span>Kurv</span> {/* ersatte med kruv icon */}
+        </div>
         </nav>
       </div>
-      <div className="cart">
-        <button type="submit">🛒</button>
-        <span>Kurv</span> {/* ersatte med kruv icon */}
-      </div>
+      
       
     </header>
   );

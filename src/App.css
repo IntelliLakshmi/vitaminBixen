@@ -47,7 +47,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Header styling */
@@ -79,7 +79,7 @@
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 1rem;
-  width: 250px; 
+  width: 400px; 
 }
 
 .search-bar button {
@@ -117,22 +117,25 @@
   justify-content: center;
   background: #f8f8f8;
   padding: 0.5rem 0;
+
+
 }
 
 .nav a {
   text-decoration: none;
   color: #5c5c5c;
-  margin: 0 1rem;
-  font-weight: bold;
+  margin: 0 5rem;
+  /*font-weight: bold;*/
   transition: color 0.3s ease;
+  font-family: 'Roboto', sans-serif;
 }
 
 .nav a:hover {
-  color: #e53e3e; /* Change color on hover */
+  color: #646cffaa; 
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 975px) {
   .topbarContainer,
   .lowbarContainer {
     flex-direction: column;
