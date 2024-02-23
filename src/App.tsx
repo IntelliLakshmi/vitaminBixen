@@ -8,15 +8,12 @@ function App() {
           <span>VitaminBiksen</span> {/* put the logo in here */}
         </div>
         <div className="search-bar">
-          <input type="text" placeholder="Tænk vitaminer, køb vitaminer" />
+          <input type="text" placeholder="Tænk vitaminer, køb vitamin er" />
             <button type="submit">🔍</button>
         </div>
         <div className="header-right">
         <a href="#business">Erhverv</a>
         <a href="#service">Kundeservice</a>
-          <div className="cart">
-            <span>Kurv</span> {/* ersatte med kruv icon */}
-          </div>
         </div>
       </div>
       <div className='lowbarContainer'>
@@ -27,6 +24,10 @@ function App() {
         <a href="#b">B Vitaminer</a>
         <a href="#more">Mere</a>
         </nav>
+      </div>
+      <div className="cart">
+        <button type="submit">🔍</button>
+        <span>Kurv</span> {/* ersatte med kruv icon */}
       </div>
       
     </header>

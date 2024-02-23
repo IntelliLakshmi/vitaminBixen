@@ -41,9 +41,8 @@
   color: #888;
 }
 
-/*Mettes code til header css*/
+/*Mettes code TO the header css*/
 
-/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -80,7 +79,7 @@
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 1rem;
-  width: 250px; /* Adjust width as necessary */
+  width: 250px; 
 }
 
 .search-bar button {
