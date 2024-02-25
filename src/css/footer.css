@@ -1,0 +1,28 @@
+
+* {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    bottom: 13px;
+    position: fixed;
+    width: 99%;
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.footerTextTypography {
+    font-size: 11px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
