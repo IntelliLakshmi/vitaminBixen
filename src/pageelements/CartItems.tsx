@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import '../css/cartitems.css'
 import data from '../data/product.json'
+import CheckoutTotal from '../checkout-total/CheckoutTotal';
 import GiftWrap from './GiftWrap';
+
 
 // Declaring the data types the const is taking in
 interface ItemProps {
@@ -47,6 +49,18 @@ const initialBasket: ItemProps[] =
             }}).filter(Boolean) as ItemProps[]) // Filter out null values and cast to ItemProps[]
     }
     
+    function getTotalPriceForProduct(productID: string): number {
+        const product = basket.find(item => item.id === productID);
+        return product ? product.price * product.amount : 0;
+    }
+    function getTotalPriceForBasket() : number{
+        let total : number = 0;
+        basket.forEach(item => {
+            total += getTotalPriceForProduct(item.id)
+        })
+        return total;
+    }
+
     function setGiftWrapOnChange(productID: string) {
         setBasket(basket.map(item => {
             if (item.id === productID) {
@@ -57,30 +71,23 @@ const initialBasket: ItemProps[] =
         }));
     }
 
-    function getTotalPrice(productID: string): number {
-        const product = basket.find(item => item.id === productID);
-        const giftWrapPrice = product?.giftWrap ? 10 : 0;
-        return product ? product.price * product.amount + giftWrapPrice : 0;
-    }
-
     return (
         <>
             {/* HTML for the top part of Items */}
             <hr className={"marginLeftRight30px"}/>
-            <div className='topRow itemBoxSize marginLeftRight30px spaceBetween'>
-                <p className={"textSizeXLarge marginLeft45px"}>Varer i indkøbskurven</p>
-                <ul className='columnNames spaceBetween'>
-                    <li>Antal</li>
-                    <li>Pris</li>
-                    <li>Rabat</li>
-                    <li>Total</li>
-                </ul>
-            </div>
+            <p className={"textSizeXLarge marginLeft45px"}>Varer i indkøbskurven</p>
+            <ul>
+                <li>Total</li>
+                <li>Rabat</li>
+                <li>Pris</li>
+                <li className={"marginRight160px"}>Antal</li>
+            </ul>
             <br/>
             <hr className={"marginLeftRight30px"}/>
             <div>
                 {basket.map(product => displayItem(product))}
             </div>
+            <CheckoutTotal total={getTotalPriceForBasket()}/>
         </>
     )
 
@@ -93,11 +100,11 @@ const initialBasket: ItemProps[] =
                     <div className="flexColumn">
                         <p className={"textSizeXLarge titelText"}>{product.name}</p>
                         <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
-                        <GiftWrap onChange={() => setGiftWrapOnChange(product.id)}/>
                         <div className="flexRow deliveryText textMoveDown65px">
                             <i className="material-icons">check_circle</i>
                             <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
                         </div>
+                        
                     </div>
                     <div className={"pricesContainer"}>
                         <ul  className="prices spaceBetween">
@@ -110,7 +117,7 @@ const initialBasket: ItemProps[] =
                             </li>
                             <li>{product.price} {product.currency}</li>
                             <li>0 {product.currency}</li>
-                            <li>{getTotalPrice(product.id)}{product.currency}</li>
+                            <li>{getTotalPriceForProduct(product.id)}{product.currency}</li>
                         </ul>
                     </div>
                     
