@@ -51,7 +51,8 @@ const initialBasket: ItemProps[] =
     
     function getTotalPriceForProduct(productID: string): number {
         const product = basket.find(item => item.id === productID);
-        return product ? product.price * product.amount : 0;
+        const giftWrapPrice = product?.giftWrap ? 10 : 0;
+        return product ? product.price * product.amount + giftWrapPrice : 0;
     }
     function getTotalPriceForBasket() : number{
         let total : number = 0;
@@ -100,6 +101,7 @@ const initialBasket: ItemProps[] =
                     <div className="flexColumn">
                         <p className={"textSizeXLarge titelText"}>{product.name}</p>
                         <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
+                        <GiftWrap onChange={() => setGiftWrapOnChange(product.id)}/>
                         <div className="flexRow deliveryText textMoveDown65px">
                             <i className="material-icons">check_circle</i>
                             <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
