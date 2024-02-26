@@ -88,7 +88,6 @@ const initialBasket: ItemProps[] =
     function displayItem(product: ItemProps) {
         return (
             <>
-<<<<<<< HEAD
                 <div className={"marginLeftRight30px marginTopBottom25px itemBoxSize flexRow"}>
                     <img src={product.img} alt="Image of product" className="cartImage"/>
                     <div className="flexColumn">
@@ -98,18 +97,6 @@ const initialBasket: ItemProps[] =
                         <div className="flexRow deliveryText textMoveDown65px">
                             <i className="material-icons">check_circle</i>
                             <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
-=======
-                <div className={"marginLeftRight30px marginTopBottom25px itemBoxSize flexRow spaceBetween"}>
-                    <div>
-                        <img src={product.img} alt="Image of product" className="cartImage"/>
-                        <div className="flexColumn">
-                            <p className={"textSizeXLarge titelText"}>{product.name}</p>
-                            <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
-                            <div className="flexRow deliveryText textMoveDown65px">
-                                <i className="material-icons">check_circle</i>
-                                <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
-                            </div>
->>>>>>> origin/cart-items
                         </div>
                     </div>
                     <div className={"pricesContainer"}>
