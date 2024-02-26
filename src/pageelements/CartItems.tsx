@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../css/cartitems.css'
 import data from '../data/product.json'
+import CheckoutTotal from '../checkout-total/CheckoutTotal';
 
 // Declaring the data types the const is taking in
 interface ItemProps {
@@ -44,10 +45,18 @@ const initialBasket: ItemProps[] =
             }}))
     }
     
-    function getTotalPrice(productID: string): number {
+    function getTotalPriceForProduct(productID: string): number {
         const product = basket.find(item => item.id === productID);
         return product ? product.price * product.amount : 0;
     }
+    function getTotalPriceForBasket() : number{
+        let total : number = 0;
+        basket.forEach(item => {
+            total += getTotalPriceForProduct(item.id)
+        })
+        return total;
+    }
+
 
     return (
         <>
@@ -65,6 +74,7 @@ const initialBasket: ItemProps[] =
             <div>
                 {basket.map(product => displayItem(product))}
             </div>
+            <CheckoutTotal total={getTotalPriceForBasket()}/>
         </>
     )
 
@@ -86,7 +96,7 @@ const initialBasket: ItemProps[] =
                     <ul>
                         <li>{product.price} {product.currency}</li>
                         <li>{product.price} {product.currency}</li>
-                        <li>{getTotalPrice(product.id)}{product.currency}</li>
+                        <li>{getTotalPriceForProduct(product.id)}{product.currency}</li>
                         <li><div className="itemCounter flexRow">
                             <p className="textSizeLarge clickable" onClick={() => minusAmount(product.id)}>-</p>
                             <p className="textSizeMedium">{product.amount}</p>

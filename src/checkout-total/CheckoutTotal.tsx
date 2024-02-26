@@ -3,7 +3,17 @@ import DeliveryDate from './DeliveryDate.tsx';
 import CheckoutButton  from './checkout-button/CheckoutButton';
 import RecurringOrder from './recurring-order/RecurringOrder.tsx';
 
-function CheckoutTotal() {
+interface CheckoutTotalProps {
+  total: number;
+}
+
+function CheckoutTotal({ total }: CheckoutTotalProps) {
+  const VAT =  getVAT(total);
+  
+  function getVAT(total: number){
+    return total*0.25;
+  }
+
   return (
     <>
     <div className="container">
@@ -16,11 +26,11 @@ function CheckoutTotal() {
     </div>
     <div className="container total">
       <p>Total beløb</p>
-      <p>0.00 kr.</p>        
+      <p>{total}</p>        
     </div>
     <div className="container">
       <p>Heraf moms</p>
-      <p>0.00 kr.</p>        
+      <p>{VAT}</p>        
     </div>
     <div className="container">
       <p></p>
