@@ -40,9 +40,11 @@ const initialBasket: ItemProps[] =
         setBasket(basket.map(item => {
             if (item.id === productID && item.amount > 1) {
                 return { ...item, amount: item.amount - 1 };
+            } else if (item.id === productID && item.amount === 1) {
+                return null; // Remove the item from the list
             } else {
                 return item;
-            }}))
+            }}).filter(Boolean) as ItemProps[]) // Filter out null values and cast to ItemProps[]
     }
     
     function setGiftWrapOnChange(productID: string) {
@@ -65,13 +67,15 @@ const initialBasket: ItemProps[] =
         <>
             {/* HTML for the top part of Items */}
             <hr className={"marginLeftRight30px"}/>
-            <p className={"textSizeXLarge marginLeft45px"}>Varer i indkøbskurven</p>
-            <ul>
-                <li>Total</li>
-                <li>Rabat</li>
-                <li>Pris</li>
-                <li className={"marginRight160px"}>Antal</li>
-            </ul>
+            <div className='topRow itemBoxSize marginLeftRight30px spaceBetween'>
+                <p className={"textSizeXLarge marginLeft45px"}>Varer i indkøbskurven</p>
+                <ul className='columnNames spaceBetween'>
+                    <li>Antal</li>
+                    <li>Pris</li>
+                    <li>Rabat</li>
+                    <li>Total</li>
+                </ul>
+            </div>
             <br/>
             <hr className={"marginLeftRight30px"}/>
             <div>
@@ -84,6 +88,7 @@ const initialBasket: ItemProps[] =
     function displayItem(product: ItemProps) {
         return (
             <>
+<<<<<<< HEAD
                 <div className={"marginLeftRight30px marginTopBottom25px itemBoxSize flexRow"}>
                     <img src={product.img} alt="Image of product" className="cartImage"/>
                     <div className="flexColumn">
@@ -93,19 +98,35 @@ const initialBasket: ItemProps[] =
                         <div className="flexRow deliveryText textMoveDown65px">
                             <i className="material-icons">check_circle</i>
                             <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
+=======
+                <div className={"marginLeftRight30px marginTopBottom25px itemBoxSize flexRow spaceBetween"}>
+                    <div>
+                        <img src={product.img} alt="Image of product" className="cartImage"/>
+                        <div className="flexColumn">
+                            <p className={"textSizeXLarge titelText"}>{product.name}</p>
+                            <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
+                            <div className="flexRow deliveryText textMoveDown65px">
+                                <i className="material-icons">check_circle</i>
+                                <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
+                            </div>
+>>>>>>> origin/cart-items
                         </div>
-                        
                     </div>
-                    <ul>
-                        <li>{product.price} {product.currency}</li>
-                        <li>{product.price} {product.currency}</li>
-                        <li>{getTotalPrice(product.id)}{product.currency}</li>
-                        <li><div className="itemCounter flexRow">
-                            <p className="textSizeLarge clickable" onClick={() => minusAmount(product.id)}>-</p>
-                            <p className="textSizeMedium">{product.amount}</p>
-                            <p className="textSizeLarge clickable" onClick={() => plusAmount(product.id)}>+</p></div>
-                        </li>
-                    </ul>
+                    <div className={"pricesContainer"}>
+                        <ul  className="prices spaceBetween">
+                            <li>
+                                <div className="itemCounter flexRow">
+                                    <p className="textSizeLarge clickable" onClick={() => minusAmount(product.id)}>-</p>
+                                    <p className="textSizeMedium">{product.amount}</p>
+                                    <p className="textSizeLarge clickable" onClick={() => plusAmount(product.id)}>+</p>
+                                </div>
+                            </li>
+                            <li>{product.price} {product.currency}</li>
+                            <li>0 {product.currency}</li>
+                            <li>{getTotalPrice(product.id)}{product.currency}</li>
+                        </ul>
+                    </div>
+                    
                 </div>
                 <hr className={"marginLeftRight30px"}/>
             </>
