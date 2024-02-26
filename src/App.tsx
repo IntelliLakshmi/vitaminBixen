@@ -1,15 +1,17 @@
 import Footer from './Footer.tsx';
 import './css/stylesheet.css'
 import BasketList from "./pageelements/CartItems.tsx";
+import Header from "./Header.tsx";
+
 
 function App() {
   return (
     <>
-      <h1>VitaminBixen</h1>
+      <Header/>
       <BasketList/>
       <Footer/>
     </>
   )
 }
 
-export default App
+export default App;
