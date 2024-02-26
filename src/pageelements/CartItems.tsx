@@ -57,7 +57,8 @@ const initialBasket: ItemProps[] =
 
     function getTotalPrice(productID: string): number {
         const product = basket.find(item => item.id === productID);
-        return product ? product.price * product.amount : 0;
+        const giftWrapPrice = product?.giftWrap ? 10 : 0;
+        return product ? product.price * product.amount + giftWrapPrice : 0;
     }
 
     return (
