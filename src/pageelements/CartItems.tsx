@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../css/cartitems.css'
 import data from '../data/product.json'
 import CheckoutTotal from '../checkout-total/CheckoutTotal';
-import GiftWrap from './GiftWrap';
+import GiftWrap from './giftwrap/GiftWrap';
 
 
 // Declaring the data types the const is taking in
@@ -38,6 +38,7 @@ const initialBasket: ItemProps[] =
                 return item;
             }}))
     }
+
     function minusAmount(productID: string) {
         setBasket(basket.map(item => {
             if (item.id === productID && item.amount > 1) {
@@ -54,6 +55,7 @@ const initialBasket: ItemProps[] =
         const giftWrapPrice = product?.giftWrap ? 10 : 0;
         return product ? product.price * product.amount + giftWrapPrice : 0;
     }
+
     function getTotalPriceForBasket() : number{
         let total : number = 0;
         basket.forEach(item => {
@@ -76,13 +78,15 @@ const initialBasket: ItemProps[] =
         <>
             {/* HTML for the top part of Items */}
             <hr className={"marginLeftRight30px"}/>
-            <p className={"textSizeXLarge marginLeft45px"}>Varer i indkøbskurven</p>
-            <ul>
-                <li>Total</li>
-                <li>Rabat</li>
-                <li>Pris</li>
-                <li className={"marginRight160px"}>Antal</li>
-            </ul>
+            <div className='topRow itemBoxSize marginLeftRight30px spaceBetween'>
+                <p className={"textSizeXLarge marginLeft45px"}>Varer i indkøbskurven</p>
+                <ul className='columnNames spaceBetween'>
+                    <li>Total</li>
+                    <li>Rabat</li>
+                    <li>Pris</li>
+                    <li>Antal</li>
+                </ul>
+            </div>
             <br/>
             <hr className={"marginLeftRight30px"}/>
             <div>
@@ -96,7 +100,8 @@ const initialBasket: ItemProps[] =
     function displayItem(product: ItemProps) {
         return (
             <>
-                <div className={"marginLeftRight30px marginTopBottom25px itemBoxSize flexRow"}>
+                <div className={"marginLeftRight30px marginTopBottom25px itemBoxSize flexRow spaceBetween"}>
+                <div>
                     <img src={product.img} alt="Image of product" className="cartImage"/>
                     <div className="flexColumn">
                         <p className={"textSizeXLarge titelText"}>{product.name}</p>
@@ -106,7 +111,7 @@ const initialBasket: ItemProps[] =
                             <i className="material-icons">check_circle</i>
                             <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
                         </div>
-                        
+                    </div>
                     </div>
                     <div className={"pricesContainer"}>
                         <ul  className="prices spaceBetween">

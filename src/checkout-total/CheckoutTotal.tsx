@@ -15,32 +15,32 @@ function CheckoutTotal({ total }: CheckoutTotalProps) {
   }
 
   return (
-    <>
-    <div className="container">
-      <DeliveryDate/>
-      <p className="amount">0.00 kr.</p>        
+    <div>
+      <div className="container">
+        <DeliveryDate/>
+        <p className="amount">0.00 kr.</p>        
+      </div>
+      <div className="container">
+        <p>Betalingsgebyr</p>
+        <p className="amount">0.00 kr.</p>        
+      </div>
+      <div className="container total">
+        <p>Total beløb</p>
+        <p>{total}</p>        
+      </div>
+      <div className="container">
+        <p>Heraf moms</p>
+        <p>{VAT}</p>        
+      </div>
+      <div className="container">
+        <p></p>
+        < RecurringOrder/>
+      </div>
+      <div className="container">
+        <p></p>
+        < CheckoutButton/>
+      </div>
     </div>
-    <div className="container">
-      <p>Betalingsgebyr</p>
-      <p className="amount">0.00 kr.</p>        
-    </div>
-    <div className="container total">
-      <p>Total beløb</p>
-      <p>{total}</p>        
-    </div>
-    <div className="container">
-      <p>Heraf moms</p>
-      <p>{VAT}</p>        
-    </div>
-    <div className="container">
-      <p></p>
-      < RecurringOrder/>
-    </div>
-    <div className="container">
-      <p></p>
-      < CheckoutButton/>
-    </div>
-    </>
   );
 }
 
