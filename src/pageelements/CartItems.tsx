@@ -81,10 +81,10 @@ const initialBasket: ItemProps[] =
             <div className='topRow itemBoxSize marginLeftRight30px spaceBetween'>
                 <p className={"textSizeXLarge marginLeft45px"}>Varer i indkøbskurven</p>
                 <ul className='columnNames spaceBetween'>
-                    <li>Total</li>
-                    <li>Rabat</li>
-                    <li>Pris</li>
                     <li>Antal</li>
+                    <li>Pris</li>
+                    <li>Rabat</li>
+                    <li>Total</li>
                 </ul>
             </div>
             <br/>
