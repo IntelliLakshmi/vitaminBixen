@@ -15,7 +15,7 @@ function CheckoutTotal({ total }: CheckoutTotalProps) {
   }
 
   return (
-    <div>
+    <div className='fullContainer'>
       <div className="container">
         <DeliveryDate/>
         <p className="amount">0.00 kr.</p>        

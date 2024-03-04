@@ -15,7 +15,7 @@ img {
 }
 
 .cartImage{
-    height: 155px;
+    height: 121px;
     object-fit: contain;
 }
 
@@ -88,4 +88,26 @@ img {
 .container{
     display: flex;
     align-items: center;
+}
+
+.itemRow {
+    align-items: center;
+}
+
+.giftWrapContainer {
+    margin: 5px;
+}
+
+.itemNames {
+    justify-content: space-around;
+    height : 121px;
+}
+
+.marginLeft10px {
+    margin-left: 10px;
+}
+
+.topText {
+    align-items: center;
+    margin-top: 13px;
 }

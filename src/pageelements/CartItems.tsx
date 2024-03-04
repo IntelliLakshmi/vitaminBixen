@@ -78,7 +78,7 @@ const initialBasket: ItemProps[] =
         <>
             {/* HTML for the top part of Items */}
             <hr className={"marginLeftRight30px"}/>
-            <div className='topRow itemBoxSize marginLeftRight30px spaceBetween'>
+            <div className='topRow itemBoxSize marginLeftRight30px spaceBetween topText'>
                 <p className={"textSizeXLarge marginLeft45px"}>Varer i indkøbskurven</p>
                 <ul className='columnNames spaceBetween'>
                     <li>Antal</li>
@@ -100,18 +100,20 @@ const initialBasket: ItemProps[] =
     function displayItem(product: ItemProps) {
         return (
             <>
-                <div className={"marginLeftRight30px marginTopBottom25px itemBoxSize flexRow spaceBetween"}>
-                <div>
-                    <img src={product.img} alt="Image of product" className="cartImage"/>
-                    <div className="flexColumn">
-                        <p className={"textSizeXLarge titelText"}>{product.name}</p>
-                        <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
-                        <GiftWrap onChange={() => setGiftWrapOnChange(product.id)}/>
-                        <div className="flexRow deliveryText textMoveDown65px">
-                            <i className="material-icons">check_circle</i>
-                            <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
+                <div className={"marginLeftRight30px marginTopBottom25px itemBoxSize flexRow spaceBetween itemRow"}>
+                    <div>
+                        <img src={product.img} alt="Image of product" className="cartImage"/>
+                        <div className="flexColumn itemNames">
+                            <div>
+                                <p className={"textSizeXLarge titelText"}>{product.name}</p>
+                                <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
+                            </div>
+                            <GiftWrap onChange={() => setGiftWrapOnChange(product.id)}/>
+                            <div className="flexRow deliveryText textMoveDown65px">
+                                <i className="material-icons">check_circle</i>
+                                <p className={"textSizeSmall marginLeft10px icon-text"}>På lager - Levering i morgen (bestil inden 22:00)</p>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div className={"pricesContainer"}>
                         <ul  className="prices spaceBetween">
@@ -127,7 +129,6 @@ const initialBasket: ItemProps[] =
                             <li>{getTotalPriceForProduct(product.id)}{product.currency}</li>
                         </ul>
                     </div>
-                    
                 </div>
                 <hr className={"marginLeftRight30px"}/>
             </>
