@@ -73,7 +73,7 @@ export default function CartItems({
     <>
       {/* HTML for the top part of Items */}
       <hr className={"marginLeftRight30px"} />
-      <div className="topRow itemBoxSize marginLeftRight30px spaceBetween">
+      <div className="topRow itemBoxSize marginLeftRight30px spaceBetween topText">
         <p className={"textSizeXLarge marginLeft45px"}>Varer i indkøbskurven</p>
         <ul className="columnNames spaceBetween">
           <li>Antal</li>
@@ -95,7 +95,7 @@ export default function CartItems({
       <>
         <div
           className={
-            "marginLeftRight30px marginTopBottom25px itemBoxSize flexRow spaceBetween"
+            "marginLeftRight30px marginTopBottom25px itemBoxSize flexRow spaceBetween itemRow"
           }
         >
           <div>
@@ -104,9 +104,11 @@ export default function CartItems({
               alt="Image of product"
               className="cartImage"
             />
-            <div className="flexColumn">
-              <p className={"textSizeXLarge titelText"}>{product.name}</p>
-              <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
+            <div className="flexColumn itemNames">
+              <div>
+                <p className={"textSizeXLarge titelText"}>{product.name}</p>
+                <p className={"textSizeSmall"}>Varenummer: {product.id}</p>
+              </div>
               <GiftWrap onChange={() => setGiftWrapOnChange(product.id)} />
               <div className="flexRow deliveryText textMoveDown65px">
                 <i className="material-icons">check_circle</i>

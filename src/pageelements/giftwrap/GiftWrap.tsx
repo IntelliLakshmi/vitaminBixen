@@ -8,12 +8,12 @@ interface GiftWrapProps {
 
 export default function GiftWrap({ onChange }: GiftWrapProps) {
   return (
-    <div className = "container">
+    <div className = "flexRow">
       <label className="">
       <input type="checkbox" onChange={onChange}></input>
       <span className="checkmark"></span>
       </label>
-      <p className="textSizeSmall">Gave indpakning: 10kr ekstra</p>
+      <p className="textSizeSmall marginLeft10px">Gave indpakning: 10kr ekstra</p>
     </div>
   );
 }

@@ -17,3 +17,8 @@
     font-weight: bold;
     font-size: larger;
 }
+
+.fullContainer {
+    padding-left: 32px;
+    padding-right: 32px;
+}
