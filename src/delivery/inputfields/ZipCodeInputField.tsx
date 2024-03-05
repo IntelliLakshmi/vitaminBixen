@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FieldRequiredWarning from "../FieldRequiredWarning";
 import { ContactAndDeliveryFormData } from "../model/ContactAndDeliveryFormData";
 import "./inputfield.css";
@@ -32,8 +32,11 @@ function ZipCodeInputField({
   const minLength = 4,
     maxLength = 4;
 
-  useEffect(() => {
-    if (touched && isValidLength) {
+  function handleBlur() {
+    setTouched(true);
+    setIsValidLength(value.length >= minLength && value.length <= maxLength);
+
+    if (isValidLength) {
       const validateZipCode = async () => {
         try {
           const response = await fetch(
@@ -52,11 +55,6 @@ function ZipCodeInputField({
 
       validateZipCode();
     }
-  }, [value, touched, isValidLength, onZipCodeValidated]);
-
-  function handleBlur() {
-    setTouched(true);
-    setIsValidLength(value.length >= minLength && value.length <= maxLength);
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {

@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { handleZipCodeValidation } from "../handleZipCodeValidation";
 import NameInputField from "../inputfields/NameInputField";
 import ZipCodeInputField from "../inputfields/ZipCodeInputField";
@@ -12,14 +13,17 @@ function DeliveryForm({
   formData,
   setContactAndDeliveryFormData,
 }: DeliveryFormProps) {
-  const handleValidatedZipCode = (zipCode: string) => {
-    handleZipCodeValidation(
-      zipCode,
-      setContactAndDeliveryFormData,
-      formData,
-      "city"
-    );
-  };
+  const handleValidatedZipCode = useCallback(
+    (zipCode: string) => {
+      handleZipCodeValidation(
+        zipCode,
+        setContactAndDeliveryFormData,
+        formData,
+        "city"
+      );
+    },
+    [formData, setContactAndDeliveryFormData]
+  );
 
   return (
     <div>
