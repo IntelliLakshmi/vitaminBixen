@@ -3,6 +3,7 @@ import DeliveryDate from "./DeliveryDate.tsx";
 import CheckoutButton from "./checkout-button/CheckoutButton";
 import RecurringOrder from "./recurring-order/RecurringOrder.tsx";
 import { Item } from "../cart-items/model/Item.tsx";
+import { getTotalPriceForProduct } from "../cart-items/getTotalPriceForProduct.tsx";
 
 interface CheckoutTotalProps {
   basket: Item[];
@@ -12,15 +13,9 @@ function CheckoutTotal({ basket }: CheckoutTotalProps) {
   function getTotalPriceForBasket(): number {
     let total: number = 0;
     basket.forEach((item) => {
-      total += getTotalPriceForProduct(item.id);
+      total += getTotalPriceForProduct(basket, item.id);
     });
     return total;
-  }
-
-  function getTotalPriceForProduct(productID: string): number {
-    const product = basket.find((item) => item.id === productID);
-    const giftWrapPrice = product?.giftWrap ? 10 : 0;
-    return product ? product.price * product.amount + giftWrapPrice : 0;
   }
 
   const totalPrice = getTotalPriceForBasket();

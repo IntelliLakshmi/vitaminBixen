@@ -1,3 +1,4 @@
+import { getTotalPriceForProduct } from "./getTotalPriceForProduct.tsx";
 import "./cartitems.css";
 import GiftWrap from "./giftwrap/GiftWrap.tsx";
 import { Item } from "./model/Item.tsx";
@@ -35,12 +36,6 @@ export default function CartItems({ basket, setBasket }: CartItemsProps) {
         })
         .filter(Boolean) as Item[]
     ); // Filter out null values and cast to ItemProps[]
-  }
-
-  function getTotalPriceForProduct(productID: string): number {
-    const product = basket.find((item) => item.id === productID);
-    const giftWrapPrice = product?.giftWrap ? 10 : 0;
-    return product ? product.price * product.amount + giftWrapPrice : 0;
   }
 
   function setGiftWrapOnChange(productID: string) {
@@ -127,7 +122,7 @@ export default function CartItems({ basket, setBasket }: CartItemsProps) {
               </li>
               <li>0 {product.currency}</li>
               <li>
-                {getTotalPriceForProduct(product.id)}
+                {getTotalPriceForProduct(basket, product.id)}
                 {product.currency}
               </li>
             </ul>
