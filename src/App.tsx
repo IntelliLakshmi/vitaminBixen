@@ -3,19 +3,11 @@ import "./css/stylesheet.css";
 import BasketList from "./pageelements/CartItems.tsx";
 import Header from "./Header.tsx";
 import CheckoutTotal from "./checkout-total/CheckoutTotal.tsx";
-import data from "../data/product.json";
+import data from "./data/product.json";
 import { useState } from "react";
+import { Item } from "./Item.tsx";
 
-interface ItemProps {
-  id: string;
-  name: string;
-  price: number;
-  currency: string;
-  img: string;
-  amount: number;
-  giftWrap: boolean;
-}
-const initialBasket: ItemProps[] = data.map((item) => ({
+const initialBasket: Item[] = data.map((item) => ({
   id: item.id,
   name: item.name,
   price: item.price,
@@ -31,8 +23,8 @@ function App() {
   return (
     <>
       <Header />
-      <BasketList />
-      <CheckoutTotal />
+      <BasketList basket={basket} setBasket={setBasket} />
+      <CheckoutTotal basket={basket} />
       <Footer />
     </>
   );

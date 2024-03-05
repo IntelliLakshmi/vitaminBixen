@@ -1,20 +1,14 @@
-import { useState } from "react";
 import "../css/cartitems.css";
-import CheckoutTotal from "../checkout-total/CheckoutTotal";
 import GiftWrap from "./giftwrap/GiftWrap";
+import { Item } from ".././Item.tsx";
 
 // Declaring the data types the const is taking in
 interface CartItemsProps {
-  initialBasket: ItemProps[];
-  setBasket: (basket: ItemProps[]) => void;
+  basket: Item[];
+  setBasket: (basket: Item[]) => void;
 }
 
-export default function CartItems({
-  initialBasket,
-  setBasket,
-}: CartItemsProps) {
-  const basket = useState(initialBasket);
-
+export default function CartItems({ basket, setBasket }: CartItemsProps) {
   function plusAmount(productID: string) {
     setBasket(
       basket.map((item) => {
@@ -39,7 +33,7 @@ export default function CartItems({
             return item;
           }
         })
-        .filter(Boolean) as ItemProps[]
+        .filter(Boolean) as Item[]
     ); // Filter out null values and cast to ItemProps[]
   }
 
@@ -47,14 +41,6 @@ export default function CartItems({
     const product = basket.find((item) => item.id === productID);
     const giftWrapPrice = product?.giftWrap ? 10 : 0;
     return product ? product.price * product.amount + giftWrapPrice : 0;
-  }
-
-  function getTotalPriceForBasket(): number {
-    let total: number = 0;
-    basket.forEach((item) => {
-      total += getTotalPriceForProduct(item.id);
-    });
-    return total;
   }
 
   function setGiftWrapOnChange(productID: string) {
@@ -85,12 +71,11 @@ export default function CartItems({
       <br />
       <hr className={"marginLeftRight30px"} />
       <div>{basket.map((product) => displayItem(product))}</div>
-      <CheckoutTotal total={getTotalPriceForBasket()} />
     </>
   );
 
   // Creates a product item
-  function displayItem(product: ItemProps) {
+  function displayItem(product: Item) {
     return (
       <>
         <div
