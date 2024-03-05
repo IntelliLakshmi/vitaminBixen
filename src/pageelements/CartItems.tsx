@@ -14,6 +14,7 @@ interface ItemProps {
     img: string;
     amount: number;
     giftWrap: boolean;
+    upsellProductId: string;
 }
 
 const initialBasket: ItemProps[] = 
@@ -24,7 +25,8 @@ const initialBasket: ItemProps[] =
         currency: item.currency,
         img: item.img,
         amount: 1,
-        giftWrap: false}));
+        giftWrap: false,
+        upsellProductId: item.upsellProductId || ''}));
 
  
  export default function cartItems(){
@@ -90,11 +92,81 @@ const initialBasket: ItemProps[] =
             <br/>
             <hr className={"marginLeftRight30px"}/>
             <div>
-                {basket.map(product => displayItem(product))}
+                {basket.length === 0 ? (
+                    <p className={"textSizeXLarge marginLeft45px  marginTopBottom25px"}>Din indkøbskurv er tom</p>
+                ) : (
+                    basket.map(product => displayItem(product))
+                )}
             </div>
             <CheckoutTotal total={getTotalPriceForBasket()}/>
         </>
     )
+
+    function UpsellItem(product: ItemProps) {
+        const upsellProduct = getItemPropFromId(product.upsellProductId);
+
+        if (!upsellProduct) {
+            return null;
+        }
+        return (
+            <>  
+                <div className='upsellTopContainer'>
+                    <img src={upsellProduct.img} alt="Image of product" className="upsellImage"/>
+                    <div className="upsellContainer">
+                        <p className={"upsellName textSizeLarge"}>{upsellProduct.name}</p>
+                        <p className={"upsellText clickable"} onClick={() => changeItemInBasket(product.id, upsellProduct)}>Opgrader dit produkt</p>
+                    </div>
+                </div>
+                
+            </>
+        )
+    }
+
+    function getItemPropFromId(itemId: string): ItemProps | undefined {
+        const item = basket.find(item => item.id === itemId);
+        if (item) {
+            return item;
+        } else {
+            const newItem = data.find(item => item.id === itemId);
+            if (newItem) {
+                return {
+                    id: newItem.id,
+                    name: newItem.name,
+                    price: newItem.price,
+                    currency: newItem.currency,
+                    img: newItem.img,
+                    amount: 1,
+                    giftWrap: false,
+                    upsellProductId: newItem.upsellProductId || ''
+                };
+            } else {
+                return undefined;
+            }
+        }
+    }
+    
+    function changeItemInBasket(itemId: string, newItem: ItemProps) {
+        const existingItemIndex = basket.findIndex(item => item.id === newItem.id);
+        const originalItem = basket.find(item => item.id === itemId);
+        if (existingItemIndex !== -1 && originalItem) {
+            // If the upsell item already exists in the basket, create a new array with the updated item
+            const newBasket = [...basket];
+            newBasket[existingItemIndex] = {
+                ...newBasket[existingItemIndex],
+                amount: newBasket[existingItemIndex].amount + originalItem.amount
+            };
+            setBasket(newBasket.filter(item => item.id !== itemId));
+        } else if (originalItem) {
+            // If the upsell item does not exist in the basket, replace the original item with the upsell item
+            setBasket(basket.map(item => {
+                if (item.id === itemId) {
+                    return {...newItem, amount: originalItem.amount};
+                } else {
+                    return item;
+                }
+            }));
+        }
+    }
 
     // Creates a product item
     function displayItem(product: ItemProps) {
@@ -115,6 +187,9 @@ const initialBasket: ItemProps[] =
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <UpsellItem {...product}/>
+                    </div>                   
                     <div className={"pricesContainer"}>
                         <ul  className="prices spaceBetween">
                             <li>
