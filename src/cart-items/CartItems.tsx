@@ -1,6 +1,6 @@
-import "../css/cartitems.css";
-import GiftWrap from "./giftwrap/GiftWrap";
-import { Item } from ".././Item.tsx";
+import "./cartitems.css";
+import GiftWrap from "./giftwrap/GiftWrap.tsx";
+import { Item } from "./model/Item.tsx";
 
 // Declaring the data types the const is taking in
 interface CartItemsProps {

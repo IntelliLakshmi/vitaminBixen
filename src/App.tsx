@@ -1,11 +1,11 @@
-import Footer from "./Footer.tsx";
-import "./css/stylesheet.css";
-import BasketList from "./pageelements/CartItems.tsx";
-import Header from "./Header.tsx";
+import Footer from "./footer/Footer.tsx";
+import "./common.css";
+import BasketList from "./cart-items/CartItems.tsx";
+import Header from "./header/Header.tsx";
 import CheckoutTotal from "./checkout-total/CheckoutTotal.tsx";
 import data from "./data/product.json";
 import { useState } from "react";
-import { Item } from "./Item.tsx";
+import { Item } from "./cart-items/model/Item.tsx";
 
 const initialBasket: Item[] = data.map((item) => ({
   id: item.id,
