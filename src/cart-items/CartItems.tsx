@@ -53,7 +53,7 @@ export default function CartItems({ basket, setBasket }: CartItemsProps) {
   return (
     <>
       {/* HTML for the top part of Items */}
-      <hr className={"marginLeftRight30px"} />
+      <hr />
       <div className="topRow itemBoxSize marginLeftRight30px spaceBetween topText">
         <p className={"textSizeXLarge marginLeft45px"}>Varer i indkøbskurven</p>
         <ul className="columnNames spaceBetween">

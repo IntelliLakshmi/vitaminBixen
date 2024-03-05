@@ -6,6 +6,7 @@ import CheckoutTotal from "./checkout-total/CheckoutTotal.tsx";
 import data from "./data/product.json";
 import { useState } from "react";
 import { Item } from "./cart-items/model/Item.tsx";
+import ContactAndDelivery from "./delivery/ContactAndDelivery.tsx";
 
 const initialBasket: Item[] = data.map((item) => ({
   id: item.id,
@@ -23,8 +24,11 @@ function App() {
   return (
     <>
       <Header />
-      <BasketList basket={basket} setBasket={setBasket} />
-      <CheckoutTotal basket={basket} />
+      <div className="app">
+        <BasketList basket={basket} setBasket={setBasket} />
+        <CheckoutTotal basket={basket} />
+        <ContactAndDelivery />
+      </div>
       <Footer />
     </>
   );
