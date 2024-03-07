@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import FieldRequiredWarning from "../FieldRequiredWarning";
 import { ContactAndDeliveryFormData } from "../model/ContactAndDeliveryFormData";
-import FieldValidationWarning from "../FieldRequiredWarning";
 import "./inputfield.css";
 
-interface EmailInputFieldProps {
+interface NameInputFieldProps {
+  autofocus?: boolean;
   required?: boolean;
   sameReceiver?: boolean;
   formData: ContactAndDeliveryFormData;
@@ -14,7 +15,8 @@ interface EmailInputFieldProps {
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
-function EmailInputField({
+function NameInputField({
+  autofocus = false,
   required = true,
   sameReceiver = true,
   formData,
@@ -23,37 +25,36 @@ function EmailInputField({
   value,
   placeholder,
   setContactAndDeliveryFormData,
-}: EmailInputFieldProps) {
+}: NameInputFieldProps) {
   const [touched, setTouched] = useState(false);
-  const [isValid, setIsValid] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (inputRef.current && autofocus) {
+      inputRef.current.focus();
+    }
+  }, [autofocus]);
 
   function handleBlur() {
-    if (value) {
-      setTouched(true);
-      setIsValid(validateEmail(value));
-    } else {
+    if (!value && required) {
       setTouched(true);
     }
   }
-  function validateEmail(email: string) {
-    const regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
-    return regex.test(email);
-  }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const newEmail = e.target.value;
+    const newValue = e.target.value;
+    const isValid = newValue.trim() !== "";
+
     const updatedFormData = {
       ...formData,
       [formDataField]: {
         ...formData[formDataField as keyof ContactAndDeliveryFormData],
-        value: newEmail,
+        value: newValue,
+        valid: isValid,
       },
     };
 
     setContactAndDeliveryFormData(updatedFormData);
-    if (touched) {
-      setIsValid(validateEmail(newEmail));
-    }
   }
 
   return (
@@ -63,7 +64,8 @@ function EmailInputField({
         {required && "*"}
       </label>
       <input
-        type="email"
+        ref={inputRef}
+        type="text"
         name={`${!sameReceiver ? "receiver" : ""}${label}`}
         id={`${!sameReceiver ? "receiver" : ""}${label}`}
         placeholder={placeholder}
@@ -71,12 +73,9 @@ function EmailInputField({
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      {touched && !isValid && value && (
-        <FieldValidationWarning text="ugyldig email" />
-      )}
-      {touched && required && !value && <FieldValidationWarning />}
+      {touched && required && !value && <FieldRequiredWarning />}
     </div>
   );
 }
 
-export default EmailInputField;
+export default NameInputField;

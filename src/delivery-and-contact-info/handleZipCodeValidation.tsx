@@ -16,7 +16,11 @@ export async function handleZipCodeValidation(
     const data = await response.json();
     setContactAndDeliveryFormData({
       ...formData,
-      [cityFieldKey]: { ...formData[cityFieldKey], value: data.navn },
+      [cityFieldKey]: {
+        ...formData[cityFieldKey],
+        value: data.navn,
+        valid: true,
+      },
     });
   } catch (error) {
     // Handle the error

@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from "react";
-import FieldRequiredWarning from "../FieldRequiredWarning";
+import { useState } from "react";
 import { ContactAndDeliveryFormData } from "../model/ContactAndDeliveryFormData";
+import FieldValidationWarning from "../FieldRequiredWarning";
 import "./inputfield.css";
 
-interface NameInputFieldProps {
-  autofocus?: boolean;
+interface EmailInputFieldProps {
   required?: boolean;
   sameReceiver?: boolean;
   formData: ContactAndDeliveryFormData;
@@ -15,8 +14,7 @@ interface NameInputFieldProps {
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
-function NameInputField({
-  autofocus = false,
+function EmailInputField({
   required = true,
   sameReceiver = true,
   formData,
@@ -25,28 +23,28 @@ function NameInputField({
   value,
   placeholder,
   setContactAndDeliveryFormData,
-}: NameInputFieldProps) {
+}: EmailInputFieldProps) {
   const [touched, setTouched] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (inputRef.current && autofocus) {
-      inputRef.current.focus();
-    }
-  }, [autofocus]);
 
   function handleBlur() {
-    if (!value && required) {
-      setTouched(true);
-    }
+    setTouched(true);
+  }
+
+  function validateEmail(email: string) {
+    const regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+    return regex.test(email);
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const newEmail = e.target.value;
+    const isValid = validateEmail(newEmail);
+
     const updatedFormData = {
       ...formData,
       [formDataField]: {
         ...formData[formDataField as keyof ContactAndDeliveryFormData],
-        value: e.target.value,
+        value: newEmail,
+        valid: isValid,
       },
     };
 
@@ -60,8 +58,7 @@ function NameInputField({
         {required && "*"}
       </label>
       <input
-        ref={inputRef}
-        type="text"
+        type="email"
         name={`${!sameReceiver ? "receiver" : ""}${label}`}
         id={`${!sameReceiver ? "receiver" : ""}${label}`}
         placeholder={placeholder}
@@ -69,9 +66,12 @@ function NameInputField({
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      {touched && required && !value && <FieldRequiredWarning />}
+      {touched && !formData.email.valid && value && (
+        <FieldValidationWarning text="ugyldig email" />
+      )}
+      {touched && required && !value && <FieldValidationWarning />}
     </div>
   );
 }
 
-export default NameInputField;
+export default EmailInputField;

@@ -3,7 +3,7 @@ import FieldRequiredWarning from "../FieldRequiredWarning";
 import { ContactAndDeliveryFormData } from "../model/ContactAndDeliveryFormData";
 import "./inputfield.css";
 
-interface PhoneInputFieldProps {
+interface NumericInputFieldProps {
   required?: boolean;
   sameReceiver?: boolean;
   formData: ContactAndDeliveryFormData;
@@ -16,7 +16,7 @@ interface PhoneInputFieldProps {
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
-function PhoneInputField({
+function NumericInputField({
   required = true,
   sameReceiver = true,
   formData,
@@ -27,7 +27,7 @@ function PhoneInputField({
   minLength,
   maxLength,
   setContactAndDeliveryFormData,
-}: PhoneInputFieldProps) {
+}: NumericInputFieldProps) {
   const [touched, setTouched] = useState(false);
   const [isValidLength, setIsValidLength] = useState(true);
 
@@ -38,12 +38,18 @@ function PhoneInputField({
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const regex = /^[0-9\b]+$/;
-    if (e.target.value === "" || regex.test(e.target.value)) {
+    const isValueValid =
+      regex.test(e.target.value) &&
+      e.target.value.length >= minLength &&
+      e.target.value.length <= maxLength;
+
+    if (isValueValid || e.target.value === "") {
       const updatedFormData = {
         ...formData,
         [formDataField]: {
           ...formData[formDataField as keyof ContactAndDeliveryFormData],
           value: e.target.value,
+          valid: isValueValid,
         },
       };
 
@@ -58,7 +64,7 @@ function PhoneInputField({
         {required && "*"}
       </label>
       <input
-        type="tel"
+        type="text"
         name={`${!sameReceiver ? "receiver" : ""}${label}`}
         id={`${!sameReceiver ? "receiver" : ""}${label}`}
         minLength={minLength}
@@ -78,4 +84,4 @@ function PhoneInputField({
   );
 }
 
-export default PhoneInputField;
+export default NumericInputField;

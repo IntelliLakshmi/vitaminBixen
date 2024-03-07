@@ -1,6 +1,5 @@
 import "./checkout-total.css";
 import DeliveryDate from "./DeliveryDate.tsx";
-import CheckoutButton from "./checkout-button/CheckoutButton";
 import RecurringOrder from "./recurring-order/RecurringOrder.tsx";
 import { Item } from "../cart-items/model/Item.tsx";
 import { getTotalPriceForProduct } from "../cart-items/getTotalPriceForProduct.tsx";
@@ -42,10 +41,6 @@ function CheckoutTotal({ basket }: CheckoutTotalProps) {
       <div className="container">
         <p></p>
         <RecurringOrder />
-      </div>
-      <div className="container">
-        <p></p>
-        <CheckoutButton />
       </div>
     </div>
   );

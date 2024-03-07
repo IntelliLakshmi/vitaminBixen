@@ -1,5 +1,6 @@
 export interface FormDataField {
   value: string;
+  valid: boolean;
 }
 export interface ContactAndDeliveryFormData {
   country: FormDataField;

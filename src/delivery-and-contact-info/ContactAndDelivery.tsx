@@ -1,36 +1,22 @@
 import { useState } from "react";
-import CompanyForm from "./contactform/CompanyForm";
 import SameDeliveryAddressButton from "./SameDeliveryAddressButton";
-import { ContactAndDeliveryFormData } from "./model/ContactAndDeliveryFormData";
-import ContactForm from "./contactform/ContactForm";
 import ".././common.css";
 import AlternativeReceiverForm from "./AlternativeReceiverForm";
-import DeliveryForm from "./deliveryform/DeliveryForm";
 import "./contactanddelivery.css";
+import ContactForm from "./contactform/ContactForm";
+import DeliveryForm from "./deliveryform/DeliveryForm";
+import CompanyForm from "./contactform/CompanyForm";
+import { ContactAndDeliveryFormData } from "./model/ContactAndDeliveryFormData";
 
-function ContactAndDelivery() {
-  const [formData, setContactAndDeliveryFormData] =
-    useState<ContactAndDeliveryFormData>({
-      country: { value: "denmark" },
-      firstName: { value: "" },
-      surname: { value: "" },
-      email: { value: "" },
-      streetNameAndNumber: { value: "" },
-      zipCode: { value: "" },
-      city: { value: "" },
-      phone: { value: "" },
-      company: { value: "" },
-      cvr: { value: "" },
+interface ContactAndDeliveryProps {
+  formData: ContactAndDeliveryFormData;
+  setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
+}
 
-      recCountry: { value: "denmark" },
-      recFirstName: { value: "" },
-      recSurname: { value: "" },
-      recStreetNameAndNumber: { value: "" },
-      recZipCode: { value: "" },
-      recCity: { value: "" },
-      recPhone: { value: "" },
-    });
-
+function ContactAndDelivery({
+  formData,
+  setContactAndDeliveryFormData,
+}: ContactAndDeliveryProps) {
   const [sameReceiver, setSameReceiver] = useState(true);
 
   return (
@@ -51,6 +37,8 @@ function ContactAndDelivery() {
       <SameDeliveryAddressButton
         differentReceiver={sameReceiver}
         setDifferentReceiver={setSameReceiver}
+        formData={formData}
+        setContactAndDeliveryFormData={setContactAndDeliveryFormData}
       />
       {!sameReceiver && (
         <div className="alternativeForm">

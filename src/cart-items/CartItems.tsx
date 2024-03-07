@@ -64,7 +64,7 @@ export default function CartItems({ basket, setBasket }: CartItemsProps) {
         </ul>
       </div>
       <br />
-      <hr className={"marginLeftRight30px"} />
+      <hr />
       <div>{basket.map((product) => displayItem(product))}</div>
     </>
   );

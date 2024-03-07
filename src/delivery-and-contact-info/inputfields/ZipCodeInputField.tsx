@@ -59,12 +59,15 @@ function ZipCodeInputField({
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const regex = /^[0-9\b]+$/;
-    if (e.target.value === "" || regex.test(e.target.value)) {
+    const isValueValid = regex.test(e.target.value);
+
+    if (isValueValid || e.target.value === "") {
       const updatedFormData = {
         ...formData,
         [formDataField]: {
           ...formData[formDataField as keyof ContactAndDeliveryFormData],
           value: e.target.value,
+          valid: isValueValid,
         },
       };
 
