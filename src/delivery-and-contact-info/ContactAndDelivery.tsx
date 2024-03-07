@@ -9,11 +9,13 @@ import CompanyForm from "./contactform/CompanyForm";
 import { ContactAndDeliveryFormData } from "./model/ContactAndDeliveryFormData";
 
 interface ContactAndDeliveryProps {
+  formSubmitted: boolean;
   formData: ContactAndDeliveryFormData;
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
 function ContactAndDelivery({
+  formSubmitted,
   formData,
   setContactAndDeliveryFormData,
 }: ContactAndDeliveryProps) {
@@ -23,10 +25,12 @@ function ContactAndDelivery({
     <div className="formContainer">
       <p className="textSizeLarge bold">Faktureringsoplysninger</p>
       <ContactForm
+        formSubmitted={formSubmitted}
         formData={formData}
         setContactAndDeliveryFormData={setContactAndDeliveryFormData}
       />
       <DeliveryForm
+        formSubmitted={formSubmitted}
         formData={formData}
         setContactAndDeliveryFormData={setContactAndDeliveryFormData}
       />
@@ -46,6 +50,7 @@ function ContactAndDelivery({
             Indtast modtagerens leveringsoplysninger
           </p>
           <AlternativeReceiverForm
+            formSubmitted={formSubmitted}
             formData={formData}
             setContactAndDeliveryFormData={setContactAndDeliveryFormData}
           />

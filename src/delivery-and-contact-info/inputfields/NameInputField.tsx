@@ -12,6 +12,7 @@ interface NameInputFieldProps {
   label: string;
   value: string;
   placeholder: string;
+  formSubmitted?: boolean;
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
@@ -24,6 +25,7 @@ function NameInputField({
   label,
   value,
   placeholder,
+  formSubmitted = false,
   setContactAndDeliveryFormData,
 }: NameInputFieldProps) {
   const [touched, setTouched] = useState(false);
@@ -73,7 +75,9 @@ function NameInputField({
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      {touched && required && !value && <FieldRequiredWarning />}
+      {(formSubmitted || (touched && required)) && !value && (
+        <FieldRequiredWarning />
+      )}
     </div>
   );
 }

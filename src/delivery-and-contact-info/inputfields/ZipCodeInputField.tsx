@@ -11,6 +11,7 @@ interface ZipCodeInputFieldProps {
   label: string;
   value: string;
   placeholder: string;
+  formSubmitted?: boolean;
   onZipCodeValidated: (zipCode: string) => void;
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
@@ -23,6 +24,7 @@ function ZipCodeInputField({
   label,
   value,
   placeholder,
+  formSubmitted = false,
   onZipCodeValidated,
   setContactAndDeliveryFormData,
 }: ZipCodeInputFieldProps) {
@@ -100,7 +102,9 @@ function ZipCodeInputField({
       {touched && !isValidZipCode && isValidLength && (
         <FieldRequiredWarning text="Ugyldigt postnummer." />
       )}
-      {touched && required && !value && <FieldRequiredWarning />}
+      {(formSubmitted || (touched && required)) && !value && (
+        <FieldRequiredWarning />
+      )}
     </div>
   );
 }

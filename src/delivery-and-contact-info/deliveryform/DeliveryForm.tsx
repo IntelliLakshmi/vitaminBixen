@@ -5,11 +5,13 @@ import ZipCodeInputField from "../inputfields/ZipCodeInputField";
 import { ContactAndDeliveryFormData } from "../model/ContactAndDeliveryFormData";
 
 interface DeliveryFormProps {
+  formSubmitted: boolean;
   formData: ContactAndDeliveryFormData;
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
 function DeliveryForm({
+  formSubmitted,
   formData,
   setContactAndDeliveryFormData,
 }: DeliveryFormProps) {
@@ -28,6 +30,7 @@ function DeliveryForm({
   return (
     <div>
       <NameInputField
+        formSubmitted={formSubmitted}
         formData={formData}
         formDataField="streetNameAndNumber"
         label="Vejnavn og husnummer"
@@ -38,6 +41,7 @@ function DeliveryForm({
       <div className="row">
         <div className="row-element-1">
           <ZipCodeInputField
+            formSubmitted={formSubmitted}
             formData={formData}
             formDataField="zipCode"
             label="Postnummer"
@@ -49,6 +53,7 @@ function DeliveryForm({
         </div>
         <div className="row-element-2">
           <NameInputField
+            formSubmitted={formSubmitted}
             formData={formData}
             formDataField="city"
             label="By"

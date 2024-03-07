@@ -13,6 +13,7 @@ interface NumericInputFieldProps {
   placeholder: string;
   maxLength: number;
   minLength: number;
+  formSubmitted?: boolean;
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
@@ -26,6 +27,7 @@ function NumericInputField({
   placeholder,
   minLength,
   maxLength,
+  formSubmitted = false,
   setContactAndDeliveryFormData,
 }: NumericInputFieldProps) {
   const [touched, setTouched] = useState(false);
@@ -79,7 +81,9 @@ function NumericInputField({
           text={`Ugyldig længde. ${label} skal være fra ${minLength} tegn til ${maxLength} tegn lang.`}
         />
       )}
-      {touched && required && !value && <FieldRequiredWarning />}
+      {(formSubmitted || (touched && required)) && !value && (
+        <FieldRequiredWarning />
+      )}
     </div>
   );
 }

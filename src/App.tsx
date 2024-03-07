@@ -16,6 +16,7 @@ import { isFormDataValid } from "./utils/IsFormDataValid.tsx";
 import { ContactAndDeliveryState } from "./show-component-state/ContactAndDeliveryState.tsx";
 
 function App() {
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const [basket, setBasket] = useState(initialBasket);
   const [formData, setContactAndDeliveryFormData] =
     useState<ContactAndDeliveryFormData>(initialFormData);
@@ -25,19 +26,11 @@ function App() {
     );
 
   function handleCheckoutClick() {
-    console.log("Checkout button clicked");
     if (isFormDataValid(formData)) {
       toggleContactAndDelivery(setContactAndDeliveryState);
     } else {
-      // Log the fields with 'valid' as false
-      Object.entries(formData).forEach(([key, value]) => {
-        if (!value.valid) {
-          console.log(`${key} is not valid`);
-          console.log(value);
-        }
-      });
+      setFormSubmitted(true);
     }
-    console.log("Form valid status:", isFormDataValid(formData));
   }
 
   return (
@@ -49,6 +42,7 @@ function App() {
         {contactAndDeliveryState ===
           ContactAndDeliveryState.ContAndDelInfoVisible && (
           <ContactAndDelivery
+            formSubmitted={formSubmitted}
             formData={formData}
             setContactAndDeliveryFormData={setContactAndDeliveryFormData}
           />

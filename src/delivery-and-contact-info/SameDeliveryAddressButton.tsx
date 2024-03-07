@@ -17,7 +17,6 @@ function SameDeliveryAddressButton({
 }: SameDeliveryAddressButtonProps) {
   function handleChange() {
     setDifferentReceiver(!differentReceiver);
-    console.log("Different receiver: ", differentReceiver);
     if (!differentReceiver) {
       SetAllReceiverFieldsToValid(formData, setContactAndDeliveryFormData);
     } else {

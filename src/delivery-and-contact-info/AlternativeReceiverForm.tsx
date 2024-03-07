@@ -6,11 +6,13 @@ import ZipCodeInputField from "./inputfields/ZipCodeInputField";
 import { ContactAndDeliveryFormData } from "./model/ContactAndDeliveryFormData";
 
 interface AlternativeReceiverFormProps {
+  formSubmitted: boolean;
   formData: ContactAndDeliveryFormData;
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
 function AlternativeReceiverForm({
+  formSubmitted,
   formData,
   setContactAndDeliveryFormData,
 }: AlternativeReceiverFormProps) {
@@ -37,6 +39,7 @@ function AlternativeReceiverForm({
       <div className="row">
         <div className="row-element-1">
           <NameInputField
+            formSubmitted={formSubmitted}
             sameReceiver={false}
             autofocus={true}
             formData={formData}
@@ -49,6 +52,7 @@ function AlternativeReceiverForm({
         </div>
         <div className="row-element-2">
           <NameInputField
+            formSubmitted={formSubmitted}
             sameReceiver={false}
             formData={formData}
             formDataField="recSurname"
@@ -60,6 +64,7 @@ function AlternativeReceiverForm({
         </div>
       </div>
       <PhoneInputField
+        formSubmitted={formSubmitted}
         sameReceiver={false}
         formData={formData}
         formDataField="recPhone"
@@ -71,6 +76,7 @@ function AlternativeReceiverForm({
         maxLength={8}
       />
       <NameInputField
+        formSubmitted={formSubmitted}
         sameReceiver={false}
         formData={formData}
         formDataField="recStreetNameAndNumber"
@@ -82,6 +88,7 @@ function AlternativeReceiverForm({
       <div className="row">
         <div className="row-element-1">
           <ZipCodeInputField
+            formSubmitted={formSubmitted}
             sameReceiver={false}
             formData={formData}
             formDataField="recZipCode"
@@ -94,6 +101,7 @@ function AlternativeReceiverForm({
         </div>
         <div className="row-element-2">
           <NameInputField
+            formSubmitted={formSubmitted}
             sameReceiver={false}
             formData={formData}
             formDataField="recCity"

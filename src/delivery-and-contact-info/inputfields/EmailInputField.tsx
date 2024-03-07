@@ -11,6 +11,7 @@ interface EmailInputFieldProps {
   label: string;
   value: string;
   placeholder: string;
+  formSubmitted?: boolean;
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
@@ -22,6 +23,7 @@ function EmailInputField({
   label,
   value,
   placeholder,
+  formSubmitted = false,
   setContactAndDeliveryFormData,
 }: EmailInputFieldProps) {
   const [touched, setTouched] = useState(false);
@@ -69,7 +71,9 @@ function EmailInputField({
       {touched && !formData.email.valid && value && (
         <FieldValidationWarning text="ugyldig email" />
       )}
-      {touched && required && !value && <FieldValidationWarning />}
+      {(formSubmitted || (touched && required)) && !value && (
+        <FieldValidationWarning />
+      )}
     </div>
   );
 }

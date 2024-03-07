@@ -17,5 +17,4 @@ export function toggleContactAndDelivery(
         return prevState;
     }
   });
-  console.log("ContactAndDeliveryState: ", ContactAndDeliveryState);
 }

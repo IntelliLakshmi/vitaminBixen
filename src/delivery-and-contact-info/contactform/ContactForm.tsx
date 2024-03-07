@@ -5,11 +5,13 @@ import NameInputField from "../inputfields/NameInputField";
 import PhoneInputField from "../inputfields/PhoneInputField";
 
 interface ContactFormProps {
+  formSubmitted: boolean;
   formData: ContactAndDeliveryFormData;
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
 function ContactForm({
+  formSubmitted,
   formData,
   setContactAndDeliveryFormData,
 }: ContactFormProps) {
@@ -24,6 +26,7 @@ function ContactForm({
       <div className="row">
         <div className="row-element-1">
           <NameInputField
+            formSubmitted={formSubmitted}
             autofocus={true}
             formData={formData}
             formDataField="firstName"
@@ -35,6 +38,7 @@ function ContactForm({
         </div>
         <div className="row-element-2">
           <NameInputField
+            formSubmitted={formSubmitted}
             formData={formData}
             formDataField="surname"
             label="Efternavn"
@@ -45,6 +49,7 @@ function ContactForm({
         </div>
       </div>
       <EmailInputField
+        formSubmitted={formSubmitted}
         formData={formData}
         formDataField="email"
         label="Email"
@@ -53,6 +58,7 @@ function ContactForm({
         placeholder="Indtast email-adresse"
       />
       <PhoneInputField
+        formSubmitted={formSubmitted}
         formData={formData}
         formDataField="phone"
         label="Telefonnummer"
