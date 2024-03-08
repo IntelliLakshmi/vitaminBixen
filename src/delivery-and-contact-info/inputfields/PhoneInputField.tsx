@@ -40,12 +40,13 @@ function PhoneInputField({
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const regex = /^[0-9\b]+$/;
-    const isValueValid =
-      regex.test(e.target.value) &&
-      e.target.value.length >= minLength &&
-      e.target.value.length <= maxLength;
 
-    if (isValueValid || e.target.value === "") {
+    const isInputValid = regex.test(e.target.value);
+
+    if (isInputValid || e.target.value === "") {
+      const isValueValid =
+        e.target.value.length >= minLength &&
+        e.target.value.length <= maxLength;
       const updatedFormData = {
         ...formData,
         [formDataField]: {
@@ -78,7 +79,7 @@ function PhoneInputField({
       />
       {touched && !isValidLength && (
         <FieldRequiredWarning
-          text={`Ugyldig længde. ${label} skal være fra ${minLength} tegn til ${maxLength} tegn lang.`}
+          text={`${label} skal være ${minLength} tegn langt.`}
         />
       )}
       {(formSubmitted || (touched && required)) && !value && (
