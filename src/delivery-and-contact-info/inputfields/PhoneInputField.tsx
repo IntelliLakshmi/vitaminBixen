@@ -79,7 +79,7 @@ function PhoneInputField({
       />
       {touched && !isValidLength && (
         <FieldRequiredWarning
-          text={`Ugyldig længde. ${label} skal være ${minLength} tegn langt.`}
+          text={`${label} skal være ${minLength} tegn langt.`}
         />
       )}
       {(formSubmitted || (touched && required)) && !value && (
