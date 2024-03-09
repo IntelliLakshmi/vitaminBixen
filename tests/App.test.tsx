@@ -13,6 +13,7 @@ import App from "../src/App";
 
 //Just a simple example. Looking for text "Varer i indkøbskurven". If found returns true
 describe(App.name, () => {
+    //One Test Case inside an describe
     it("should render", () => {
         render(<App />);
         const textElement = screen.getByText(/Varer i indkøbskurven/i);
