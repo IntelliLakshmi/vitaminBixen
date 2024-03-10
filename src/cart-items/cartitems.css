@@ -112,23 +112,25 @@ img {
     margin-top: 13px;
 }
 .withoutRebate {
-    color: #a84747; 
+    font-family: 'Roboto', sans-serif;
+    color: #1e1e1c; 
     font-weight: bold;
     font-size: 0.875rem; 
     padding: 10px; 
     margin-top: 10px; 
-    background-color: #fcf8e3; 
+    background-color: #ede8c8; 
     border-radius: 5px; 
-    border: 1px solid #c28f77; 
+    border: 1px solid #79792e; 
 }
 .withRebate {
-    color: #7bcf65; 
-    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #3be510; 
+    /*font-weight: bold;*/
     font-size: 0.875rem; 
     padding: 10px; 
     margin-top: 10px; 
-    background-color: #fcf8e3; 
+    background-color: #daf8e4; 
     border-radius: 5px; 
-    border: 1px solid #437c38; 
+    border: 1px solid #6ac059; 
 }
   
