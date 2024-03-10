@@ -111,7 +111,7 @@ img {
     align-items: center;
     margin-top: 13px;
 }
-.MessageWithoutRebate {
+.withoutRebate {
     color: #a84747; 
     font-weight: bold;
     font-size: 0.875rem; 
@@ -120,5 +120,15 @@ img {
     background-color: #fcf8e3; 
     border-radius: 5px; 
     border: 1px solid #c28f77; 
+}
+.withRebate {
+    color: #7bcf65; 
+    font-weight: bold;
+    font-size: 0.875rem; 
+    padding: 10px; 
+    margin-top: 10px; 
+    background-color: #fcf8e3; 
+    border-radius: 5px; 
+    border: 1px solid #437c38; 
 }
   

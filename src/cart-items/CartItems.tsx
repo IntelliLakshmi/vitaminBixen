@@ -106,11 +106,18 @@ const CartItems: React.FC<CartItemsProps> = ({ basket, setBasket }) => {
                       {totalPrice.toFixed(2)} {product.currency}
                     </li>
                   </ul>
-                  {product.amount < 5 && (
-                    <div className="MessageWithoutRebate">
-                      Øg antallet til 5 eller mere for at få en rabat!
+                  <div className='messageRebate'>
+                  {product.amount < 3 && (
+                    <div className="withoutRebate">
+                      Køb 3 og få 10 % i rabat!
                     </div>
                   )}
+                  {product.amount > 2 && (
+                    <div className="withRebate">
+                      Tillykke, du har fået 10 % på dit køb!
+                    </div>
+                  )}
+                  </div>
                 </div>
               </div>
               <hr className="marginLeftRight30px" />
