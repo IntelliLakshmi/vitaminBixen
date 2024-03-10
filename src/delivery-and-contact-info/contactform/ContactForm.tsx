@@ -32,6 +32,7 @@ function ContactForm({
             formDataField="firstName"
             label="Fornavn"
             value={formData.firstName.value}
+            regex={/^[^0-9]*$/}
             setContactAndDeliveryFormData={setContactAndDeliveryFormData}
             placeholder="Indtast fornavn"
           />
@@ -43,6 +44,7 @@ function ContactForm({
             formDataField="surname"
             label="Efternavn"
             value={formData.surname.value}
+            regex={/^[^0-9]*$/}
             setContactAndDeliveryFormData={setContactAndDeliveryFormData}
             placeholder="Indtast efternavn"
           />

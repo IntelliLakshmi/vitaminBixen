@@ -13,6 +13,7 @@ interface NameInputFieldProps {
   value: string;
   placeholder: string;
   formSubmitted?: boolean;
+  regex?: RegExp;
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
@@ -26,6 +27,7 @@ function NameInputField({
   value,
   placeholder,
   formSubmitted = false,
+  regex = /.*/,
   setContactAndDeliveryFormData,
 }: NameInputFieldProps) {
   const [touched, setTouched] = useState(false);
@@ -45,18 +47,20 @@ function NameInputField({
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const newValue = e.target.value;
-    const isValid = newValue.trim() !== "";
+    const isValid = newValue.trim() !== "" && regex.test(newValue);
 
-    const updatedFormData = {
-      ...formData,
-      [formDataField]: {
-        ...formData[formDataField as keyof ContactAndDeliveryFormData],
-        value: newValue,
-        valid: isValid,
-      },
-    };
+    if (regex.test(newValue) || newValue === "") {
+      const updatedFormData = {
+        ...formData,
+        [formDataField]: {
+          ...formData[formDataField as keyof ContactAndDeliveryFormData],
+          value: newValue,
+          valid: isValid,
+        },
+      };
 
-    setContactAndDeliveryFormData(updatedFormData);
+      setContactAndDeliveryFormData(updatedFormData);
+    }
   }
 
   return (
