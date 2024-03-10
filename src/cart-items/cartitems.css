@@ -112,8 +112,13 @@ img {
     margin-top: 13px;
 }
 .MessageWithoutRebate {
-    color: #d9534f; /* Rød farve for at fange brugerens opmærksomhed */
+    color: #a84747; 
     font-weight: bold;
-    padding-top: 5px; /* Lille afstand fra priserne */
-  }
+    font-size: 0.875rem; 
+    padding: 10px; 
+    margin-top: 10px; 
+    background-color: #fcf8e3; 
+    border-radius: 5px; 
+    border: 1px solid #c28f77; 
+}
   
