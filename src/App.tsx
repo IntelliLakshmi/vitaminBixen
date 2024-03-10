@@ -14,6 +14,8 @@ const initialBasket: Item[] = data.map((item) => ({
   currency: item.currency,
   img: item.img,
   amount: 1,
+  rebatePercent: item.rebatePercent,
+  rebateQuantity: item.rebateQuantity,
   giftWrap: false,
 }));
 

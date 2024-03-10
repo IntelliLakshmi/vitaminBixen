@@ -107,14 +107,20 @@ const CartItems: React.FC<CartItemsProps> = ({ basket, setBasket }) => {
                     </li>
                   </ul>
                   <div className='messageRebate'>
-                  {product.amount < 3 && (
+                  {product.amount < product.rebateQuantity && (
                     <div className="withoutRebate notification">
-                      Køb {3 - product.amount} mere og få 10 % i rabat!
+                     <span>
+                      Få <strong>{product.rebatePercent* 100}%</strong> rabat
+                     </span>
+                      Køb <strong>{product.rebateQuantity - product.amount}</strong> mere og få <strong>{product.rebatePercent * 100}% i rabat!</strong>
                     </div>
                   )}
-                  {product.amount > 2 && (
+                  {product.amount >= product.rebateQuantity && (
                     <div className="withRebate notification">
-                      Tillykke, du har fået 10 % på dit køb!
+                      <span>
+                      Tillykke!
+                     </span>
+                      Du har fået <strong>{product.rebatePercent* 100}%</strong> på dit køb!
                     </div>
                   )}
                   </div>

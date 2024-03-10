@@ -8,9 +8,9 @@ export function getTotalPriceForProduct(
   const giftWrapPrice = product?.giftWrap ? 10 : 0;
   let rebate = 0;
 
-  // Tjek om mængden er 5 eller mere og beregn rabatten.
-  if (product && product.amount >= 5) {
-    rebate = product.price * product.amount * 0.10; // 10% rabat
+  // Tjek om mængden er større en rebateQuantity og beregn rabatten.
+  if (product && product.amount >= product.rebateQuantity) {
+    rebate = product.price * product.amount * product.rebatePercent; 
   }
 
   const totalPrice = product ? (product.price * product.amount + giftWrapPrice) - rebate : 0;

@@ -104,28 +104,31 @@ img {
     align-items: center;
     margin-top: 13px;
 }
-.messageRebate{
-    width: auto;
-    height: 50px;
-}
+
 .withoutRebate {
-    color: #c73d3d; 
-    background-color: #f8f1f1; 
+    color: #e0585d; 
+    background-color: #f6f0f0; 
+    border-left: solid 4px #ce5050 ;
 }
 
 .withRebate {
     color: #44ce22; 
-    background-color: #f6fbf7; 
-   
+    background-color: #f6fbf7;   
+    border-left: solid 4px #04f02f ;
 }
 
 .notification {
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    font-size: 0.875rem; 
-    padding: 10px; 
-    margin-top: 10px; 
-    border-radius: 10px; 
+    font-size: 12px;
+    padding: 12px 30px 12px 35px;
+    margin-top: 10px;
+    border-radius: 4px;
     display: inline-block;
+    line-height: 20px;
 }
-  
+  .notification span {
+    display: table;
+    font-weight: bold;
+    color: #313535; 
+    font-size: 14px;
+  }
