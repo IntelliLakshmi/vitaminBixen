@@ -58,38 +58,31 @@ img {
     justify-content: space-around;
     align-items: center;
 }
-
 .spaceBetween {
     justify-content: space-between;
 }
-
 .topRow {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-
 .columnNames {
     display: flex;
     flex-direction: row;
     min-width: 32%;
 }
-
 .pricesContainer {
     min-width: 33%;
 }
-
 .prices {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
-
 .container{
     display: flex;
     align-items: center;
 }
-
 .itemRow {
     align-items: center;
 }
@@ -111,26 +104,28 @@ img {
     align-items: center;
     margin-top: 13px;
 }
+.messageRebate{
+    width: auto;
+    height: 50px;
+}
 .withoutRebate {
+    color: #c73d3d; 
+    background-color: #f8f1f1; 
+}
+
+.withRebate {
+    color: #44ce22; 
+    background-color: #f6fbf7; 
+   
+}
+
+.notification {
     font-family: 'Roboto', sans-serif;
-    color: #1e1e1c; 
     font-weight: bold;
     font-size: 0.875rem; 
     padding: 10px; 
     margin-top: 10px; 
-    background-color: #ede8c8; 
-    border-radius: 5px; 
-    border: 1px solid #79792e; 
-}
-.withRebate {
-    font-family: 'Roboto', sans-serif;
-    color: #3be510; 
-    /*font-weight: bold;*/
-    font-size: 0.875rem; 
-    padding: 10px; 
-    margin-top: 10px; 
-    background-color: #daf8e4; 
-    border-radius: 5px; 
-    border: 1px solid #6ac059; 
+    border-radius: 10px; 
+    display: inline-block;
 }
   

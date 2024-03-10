@@ -108,16 +108,17 @@ const CartItems: React.FC<CartItemsProps> = ({ basket, setBasket }) => {
                   </ul>
                   <div className='messageRebate'>
                   {product.amount < 3 && (
-                    <div className="withoutRebate">
-                      Køb 3 og få 10 % i rabat!
+                    <div className="withoutRebate notification">
+                      Køb {3 - product.amount} mere og få 10 % i rabat!
                     </div>
                   )}
                   {product.amount > 2 && (
-                    <div className="withRebate">
+                    <div className="withRebate notification">
                       Tillykke, du har fået 10 % på dit køb!
                     </div>
                   )}
                   </div>
+
                 </div>
               </div>
               <hr className="marginLeftRight30px" />
