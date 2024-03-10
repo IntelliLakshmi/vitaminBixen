@@ -5,7 +5,7 @@
     "price": 116,
     "currency": "DKK",
     "rebateQuantity": 3,
-    "rebatePercent": 10,
+    "rebatePercent": 0.10,
     "upsellProductId": null,
     "img": "https://www.med24.dk/imgsrv/2020-10-23/31528/1/d-max-100-g-90-tyggetabl.jpg?c=IhGJlU"
   },
