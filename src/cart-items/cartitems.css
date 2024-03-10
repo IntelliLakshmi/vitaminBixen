@@ -111,3 +111,9 @@ img {
     align-items: center;
     margin-top: 13px;
 }
+.MessageWithoutRebate {
+    color: #d9534f; /* Rød farve for at fange brugerens opmærksomhed */
+    font-weight: bold;
+    padding-top: 5px; /* Lille afstand fra priserne */
+  }
+  
