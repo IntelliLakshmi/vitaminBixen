@@ -2,7 +2,7 @@ interface FieldValidationWarningProps {
   text?: string;
 }
 
-const defaultWarningText = " Udfyld venligst dette felt";
+export const defaultWarningText = " Udfyld venligst dette felt";
 
 export default function FieldValidationWarning({
   text = defaultWarningText,

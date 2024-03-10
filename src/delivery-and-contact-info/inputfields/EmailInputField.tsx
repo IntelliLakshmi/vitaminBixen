@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ContactAndDeliveryFormData } from "../model/ContactAndDeliveryFormData";
-import FieldValidationWarning from "../FieldRequiredWarning";
+import FieldRequiredWarning, {
+  defaultWarningText,
+} from "../FieldRequiredWarning";
 import "./inputfield.css";
 
 interface EmailInputFieldProps {
@@ -53,6 +55,14 @@ function EmailInputField({
     setContactAndDeliveryFormData(updatedFormData);
   }
 
+  let warningMessage = "";
+
+  if (touched && !formData.email.valid && value) {
+    warningMessage = `ugyldig email`;
+  } else if ((formSubmitted || touched) && required && !value) {
+    warningMessage = defaultWarningText;
+  }
+
   return (
     <div className="input-div">
       <label htmlFor={label}>
@@ -68,12 +78,7 @@ function EmailInputField({
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      {touched && !formData.email.valid && value && (
-        <FieldValidationWarning text="ugyldig email" />
-      )}
-      {(formSubmitted || (touched && required)) && !value && (
-        <FieldValidationWarning />
-      )}
+      {warningMessage && <FieldRequiredWarning text={warningMessage} />}
     </div>
   );
 }

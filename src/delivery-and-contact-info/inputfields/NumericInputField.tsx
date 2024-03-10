@@ -1,5 +1,7 @@
 import { useState } from "react";
-import FieldRequiredWarning from "../FieldRequiredWarning";
+import FieldRequiredWarning, {
+  defaultWarningText,
+} from "../FieldRequiredWarning";
 import { ContactAndDeliveryFormData } from "../model/ContactAndDeliveryFormData";
 import "./inputfield.css";
 
@@ -59,6 +61,14 @@ function NumericInputField({
     }
   }
 
+  let warningMessage = "";
+
+  if (touched && !isValidLength) {
+    warningMessage = `Ugyldig længde. ${label} skal være fra ${minLength} tegn til ${maxLength} tegn lang.`;
+  } else if ((formSubmitted || touched) && required && !value) {
+    warningMessage = defaultWarningText;
+  }
+
   return (
     <div className="input-div">
       <label htmlFor={label}>
@@ -76,14 +86,7 @@ function NumericInputField({
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      {touched && !isValidLength && (
-        <FieldRequiredWarning
-          text={`Ugyldig længde. ${label} skal være fra ${minLength} tegn til ${maxLength} tegn lang.`}
-        />
-      )}
-      {(formSubmitted || (touched && required)) && !value && (
-        <FieldRequiredWarning />
-      )}
+      {warningMessage && <FieldRequiredWarning text={warningMessage} />}
     </div>
   );
 }
