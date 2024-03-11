@@ -5,5 +5,8 @@ export interface Item {
   currency: string;
   img: string;
   amount: number;
+  rebatePercent: number;
+  rebateQuantity: number,
   giftWrap: boolean;
+  upsellProductId: string;
 }
