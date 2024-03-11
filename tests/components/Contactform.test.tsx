@@ -7,7 +7,6 @@ describe('Testing Contactform', async () => {
     // Forname Field Testing
     // Testing Forname Empty Field Error Logic
     it('Forname should display error message "Udfyld venligst dette felt" when empty', () => {
-        // Mock data for form
         render(<App /> );
 
         // Find input field for Fornavn, simulate writing in the field and then click away from the field.
