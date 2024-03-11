@@ -202,9 +202,4 @@ describe('Testing Contactform', async () => {
             expect(errorMessage).toBeInTheDocument();
         });
     });
-
-
-
-    //More test to add.
-
 });

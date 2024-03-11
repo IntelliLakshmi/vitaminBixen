@@ -71,6 +71,7 @@ function NameInputField({
       </label>
       <input
         ref={inputRef}
+        role="input"
         type="text"
         name={`${!sameReceiver ? "receiver" : ""}${label}`}
         id={`${!sameReceiver ? "receiver" : ""}${label}`}
