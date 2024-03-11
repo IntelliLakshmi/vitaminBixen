@@ -20,6 +20,16 @@ const CheckoutTotal: React.FC<CheckoutTotalProps> = ({ basket }) => {
     return total;
   }
 
+  function getTotalRebateForBasket(): number {
+    let totalRebate: number = 0;
+    basket.forEach((item) => {
+      const productTotalRebate = getTotalPriceForProduct(basket, item.id).rebate;
+      totalRebate += productTotalRebate;
+    });
+    return totalRebate;
+  }
+
+  const rebate = getTotalRebateForBasket().toFixed(2);
   const totalPrice = getTotalPriceForBasket().toFixed(2); // Ensure it's a string with 2 decimal places
   const VAT = (parseFloat(totalPrice) * 0.2).toFixed(2); // Calculate VAT from the total price
 
@@ -32,6 +42,10 @@ const CheckoutTotal: React.FC<CheckoutTotalProps> = ({ basket }) => {
       <div className="container">
         <p>Betalingsgebyr</p>
         <p className="amount">0.00 kr.</p>
+      </div>
+      <div className="container">
+        <p>Rabat</p>
+        <p className="amount">{rebate} kr.</p> {/* Displays the total rebate amount */}
       </div>
       <div className="container total">
         <p>Total beløb</p>
