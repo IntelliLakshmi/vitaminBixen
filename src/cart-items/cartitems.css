@@ -58,31 +58,38 @@ img {
     justify-content: space-around;
     align-items: center;
 }
+
 .spaceBetween {
     justify-content: space-between;
 }
+
 .topRow {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
 .columnNames {
     display: flex;
     flex-direction: row;
     min-width: 32%;
 }
+
 .pricesContainer {
     min-width: 33%;
 }
+
 .prices {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
+
 .container{
     display: flex;
     align-items: center;
 }
+
 .itemRow {
     align-items: center;
 }
@@ -106,14 +113,14 @@ img {
 }
 
 .withoutRebate {
-    color: #e0585d; 
-    background-color: #f6f0f0; 
+    color: #e0585d;
+    background-color: #f6f0f0;
     border-left: solid 4px #ce5050 ;
 }
 
 .withRebate {
-    color: #44ce22; 
-    background-color: #f6fbf7;   
+    color: #44ce22;
+    background-color: #f6fbf7;
     border-left: solid 4px #04f02f ;
 }
 
@@ -129,6 +136,46 @@ img {
   .notification span {
     display: table;
     font-weight: bold;
-    color: #313535; 
+    color: #313535;
     font-size: 14px;
   }
+
+.upsellText {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.upsellText:hover {
+    background-color: rgb(143, 175, 235);
+    color: white;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.upsellImage {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.upsellTopContainer{
+    background-color: #D9D9D9;
+    height: 121px;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.upsellContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.upsellName{
+    margin-left: 5px;
+}

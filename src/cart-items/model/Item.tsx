@@ -8,4 +8,5 @@ export interface Item {
   rebatePercent: number;
   rebateQuantity: number,
   giftWrap: boolean;
+  upsellProductId: string;
 }

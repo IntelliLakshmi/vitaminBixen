@@ -36,6 +36,16 @@
     "currency": "DKK",
     "rebateQuantity": 5,
     "rebatePercent": 0.10,
+    "upsellProductId": "fish-oil-1000-200",
+    "img": "https://www.pricerunner.dk/product/640x640/1576957364/Apovit-Omega-3-1000mg-120-stk.jpg?ph=true"
+  },
+  {
+    "id": "fish-oil-1000-200",
+    "name": "Omega 3 fiskeolie, 1000mg, 200 stk",
+    "price": 99,
+    "currency": "DKK",
+    "rebateQuantity": 5,
+    "rebatePercent": 10,
     "upsellProductId": null,
     "img": "https://www.pricerunner.dk/product/640x640/1576957364/Apovit-Omega-3-1000mg-120-stk.jpg?ph=true"
   },
@@ -46,8 +56,18 @@
     "currency": "DKK",
     "rebateQuantity": 2,
     "rebatePercent": 0.33,
-    "upsellProductId": "omnimin-300-plastic",
+    "upsellProductId": null,
     "img": "https://www.med24.dk/imgsrv/2024-01-25/96572/1/3690.jpg?c=IzoCj3"
+  },
+  {
+    "id": "omnimin-160",
+    "name": "Omnimin - 160 tabl.",
+    "price": 269,
+    "currency": "DKK",
+    "rebateQuantity": 2,
+    "rebatePercent": 0.33,
+    "upsellProductId": "omnimin-300",
+    "img": "https://helsegrossisten.dk/media/catalog/product/optimized/c/3/c3499ff57e1abc15d5c17ad8e23fc671/omnimin_2.jpg"
   },
   {
     "id": "vitamin-b12-vegansk",
@@ -70,6 +90,16 @@
     "img": "https://www.med24.dk/imgsrv/2017-10-09/3725/1/puori-d3-vitamin-62-5-g-120-kap.jpg?c=IhGM8r"
   },
   {
+    "id": "vitamin-puori-d3-vegansk",
+    "name": "Puori D3-vitamin 62,5 ug - 120 kap - Vegansk",
+    "price": 169,
+    "currency": "DKK",
+    "rebateQuantity": 4,
+    "rebatePercent": 0.50,
+    "upsellProductId": null,
+    "img": "https://www.med24.dk/imgsrv/2017-10-09/3725/1/puori-d3-vitamin-62-5-g-120-kap.jpg?c=IhGM8r"
+  },
+  {
     "id": "vitayummy-kids-multi-cola-60",
     "name": "VitaYummi Kids Multi Cola - 60 stk.",
     "price": 159,
@@ -87,6 +117,16 @@
     "rebateQuantity": 0,
     "rebatePercent": 0,
     "upsellProductId": "vitayummy-hair-nails-raspberry-vegansk",
+    "img": "https://www.med24.dk/imgsrv/2024-02-14/98269/1/vitayummy-hair-og-nails-raspberry-60-stk.jpg?c=IzaseN"
+  },
+  {
+    "id": "vitayummy-hair-nails-raspberry-vegansk",
+    "name": "VitaYummy Hair & Nails Raspberry - 60 stk. - Vegansk",
+    "price": 189,
+    "currency": "DKK",
+    "rebateQuantity": 0,
+    "rebatePercent": 0,
+    "upsellProductId": null,
     "img": "https://www.med24.dk/imgsrv/2024-02-14/98269/1/vitayummy-hair-og-nails-raspberry-60-stk.jpg?c=IzaseN"
   },
   {

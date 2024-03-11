@@ -1,0 +1,94 @@
+import { useState } from "react";
+import FieldRequiredWarning, {
+  defaultWarningText,
+} from "../FieldRequiredWarning";
+import { ContactAndDeliveryFormData } from "../model/ContactAndDeliveryFormData";
+import "./inputfield.css";
+
+interface NumericInputFieldProps {
+  required?: boolean;
+  sameReceiver?: boolean;
+  formData: ContactAndDeliveryFormData;
+  formDataField: string;
+  label: string;
+  value: string;
+  placeholder: string;
+  maxLength: number;
+  minLength: number;
+  formSubmitted?: boolean;
+  setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
+}
+
+function NumericInputField({
+  required = true,
+  sameReceiver = true,
+  formData,
+  formDataField,
+  label,
+  value,
+  placeholder,
+  minLength,
+  maxLength,
+  formSubmitted = false,
+  setContactAndDeliveryFormData,
+}: NumericInputFieldProps) {
+  const [touched, setTouched] = useState(false);
+  const [isValidLength, setIsValidLength] = useState(true);
+
+  function handleBlur() {
+    setTouched(true);
+    setIsValidLength(value.length >= minLength && value.length <= maxLength);
+  }
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const regex = /^[0-9\b]+$/;
+    const isValueValid =
+      regex.test(e.target.value) &&
+      e.target.value.length >= minLength &&
+      e.target.value.length <= maxLength;
+
+    if (isValueValid || e.target.value === "") {
+      const updatedFormData = {
+        ...formData,
+        [formDataField]: {
+          ...formData[formDataField as keyof ContactAndDeliveryFormData],
+          value: e.target.value,
+          valid: isValueValid,
+        },
+      };
+
+      setContactAndDeliveryFormData(updatedFormData);
+    }
+  }
+
+  let warningMessage = "";
+
+  if (touched && !isValidLength) {
+    warningMessage = `Ugyldig længde. ${label} skal være fra ${minLength} tegn til ${maxLength} tegn lang.`;
+  } else if ((formSubmitted || touched) && required && !value) {
+    warningMessage = defaultWarningText;
+  }
+
+  return (
+    <div className="input-div">
+      <label htmlFor={label}>
+        {label}
+        {required && "*"}
+      </label>
+      <input
+        type="text"
+        name={`${!sameReceiver ? "receiver" : ""}${label}`}
+        id={`${!sameReceiver ? "receiver" : ""}${label}`}
+        minLength={minLength}
+        maxLength={maxLength}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
+      {warningMessage && <FieldRequiredWarning text={warningMessage} />}
+    </div>
+  );
+}
+
+export default NumericInputField;
