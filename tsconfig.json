@@ -23,8 +23,8 @@
   "include": [
     "src",
     "tests",
-    "./vitest.setup.ts",
-    "node_modules/vitest/globals.d.ts"
+    "./vitest.setup.ts"
+    //"node_modules/vitest/globals.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
