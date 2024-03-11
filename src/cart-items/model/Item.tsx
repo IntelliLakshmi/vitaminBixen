@@ -6,4 +6,5 @@ export interface Item {
   img: string;
   amount: number;
   giftWrap: boolean;
+  upsellProductId: string;
 }
