@@ -50,6 +50,19 @@ const CartItems: React.FC<CartItemsProps> = ({ basket, setBasket }) => {
     );
   }
 
+  /* !!! NOT FINISHED !!!
+  function removeItem(productID: string) {
+    setBasket(
+      basket
+        .map((item) => {
+          if (item.id === productID) {
+            return null;
+          }
+        })
+    );
+  }
+  */
+
   return (
     <>
       <hr className="marginLeftRight30px" />
@@ -106,25 +119,31 @@ const CartItems: React.FC<CartItemsProps> = ({ basket, setBasket }) => {
                       {totalPrice.toFixed(2)} {product.currency}
                     </li>
                   </ul>
-                  <div className='messageRebate'>
-                  {product.amount < product.rebateQuantity && (
-                    <div className="withoutRebate notification">
-                     <span>
-                      Få <strong>{product.rebatePercent* 100}%</strong> rabat
-                     </span>
-                      Køb <strong>{product.rebateQuantity - product.amount}</strong> mere og få <strong>{product.rebatePercent * 100}% i rabat!</strong>
-                    </div>
-                  )}
-                  {product.amount >= product.rebateQuantity && (
-                    <div className="withRebate notification">
-                      <span>
-                      Tillykke!
-                     </span>
-                      Du har fået <strong>{product.rebatePercent* 100}%</strong> på dit køb!
-                    </div>
-                  )}
-                  </div>
-
+                  <ul className="prices spaceBetween">
+                    <li>
+                      <div className='messageRebate'>
+                        {product.amount < product.rebateQuantity && (
+                          <div className="withoutRebate notification">
+                            <span>
+                              Få <strong>{product.rebatePercent * 100}%</strong> rabat
+                            </span>
+                            Køb <strong>{product.rebateQuantity - product.amount}</strong> mere og få <strong>{product.rebatePercent * 100}% i rabat!</strong>
+                          </div>
+                        )}
+                        {product.amount >= product.rebateQuantity && (
+                          <div className="withRebate notification">
+                            <span>
+                              Tillykke!
+                            </span>
+                            Du har fået <strong>{product.rebatePercent * 100}%</strong> på dit køb!
+                          </div>
+                        )}
+                      </div>
+                    </li>
+                    <li>
+                      <i className="material-icons" /* onClick !!! NOT FINISHED !!!*/ >delete</i>
+                    </li>
+                  </ul>
                 </div>
               </div>
               <hr className="marginLeftRight30px" />
