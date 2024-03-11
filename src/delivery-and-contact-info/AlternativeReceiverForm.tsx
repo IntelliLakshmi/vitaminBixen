@@ -46,6 +46,7 @@ function AlternativeReceiverForm({
             formDataField="recFirstName"
             label="Fornavn"
             value={formData.recFirstName.value}
+            regex={/^[^0-9]*$/}
             setContactAndDeliveryFormData={setContactAndDeliveryFormData}
             placeholder="Indtast fornavn"
           />
@@ -58,6 +59,7 @@ function AlternativeReceiverForm({
             formDataField="recSurname"
             label="Efternavn"
             value={formData.recSurname.value}
+            regex={/^[^0-9]*$/}
             setContactAndDeliveryFormData={setContactAndDeliveryFormData}
             placeholder="Indtast efternavn"
           />

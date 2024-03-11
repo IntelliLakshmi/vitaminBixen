@@ -1,5 +1,7 @@
 import { useState } from "react";
-import FieldRequiredWarning from "../FieldRequiredWarning";
+import FieldRequiredWarning, {
+  defaultWarningText,
+} from "../FieldRequiredWarning";
 import { ContactAndDeliveryFormData } from "../model/ContactAndDeliveryFormData";
 import "./inputfield.css";
 
@@ -77,6 +79,16 @@ function ZipCodeInputField({
     }
   }
 
+  let warningMessage = "";
+
+  if (!isValidLength && touched) {
+    warningMessage = `${label} skal være fra ${minLength} tegn langt.`;
+  } else if (!isValidZipCode && isValidLength && touched) {
+    warningMessage = "Ugyldigt postnummer.";
+  } else if (required && !value) {
+    warningMessage = defaultWarningText;
+  }
+
   return (
     <div className="input-div">
       <label htmlFor={label}>
@@ -94,16 +106,8 @@ function ZipCodeInputField({
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      {touched && !isValidLength && (
-        <FieldRequiredWarning
-          text={`${label} skal være fra ${minLength} tegn langt.`}
-        />
-      )}
-      {touched && !isValidZipCode && isValidLength && (
-        <FieldRequiredWarning text="Ugyldigt postnummer." />
-      )}
-      {(formSubmitted || (touched && required)) && !value && (
-        <FieldRequiredWarning />
+      {formSubmitted && warningMessage && (
+        <FieldRequiredWarning text={warningMessage} />
       )}
     </div>
   );
