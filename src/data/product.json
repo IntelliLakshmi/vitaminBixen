@@ -45,7 +45,7 @@
     "price": 99,
     "currency": "DKK",
     "rebateQuantity": 5,
-    "rebatePercent": 10,
+    "rebatePercent": 0.10,
     "upsellProductId": null,
     "img": "https://www.pricerunner.dk/product/640x640/1576957364/Apovit-Omega-3-1000mg-120-stk.jpg?ph=true"
   },

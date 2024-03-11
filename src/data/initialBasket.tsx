@@ -9,5 +9,7 @@ export const initialBasket: Item[] = data.map((item) => ({
   img: item.img,
   amount: 1,
   giftWrap: false,
+  rebateQuantity: item.rebateQuantity,
+  rebatePercent: item.rebatePercent,
   upsellProductId: item.upsellProductId || ''
 }));
