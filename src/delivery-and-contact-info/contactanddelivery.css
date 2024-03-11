@@ -1,0 +1,14 @@
+.formContainer{
+    max-width: 800px;
+}
+
+.alternativeForm{
+    margin-block: 20px;
+}
+select{
+    margin-block: 10px;
+}
+
+.bold{
+    font-weight: bold;
+}

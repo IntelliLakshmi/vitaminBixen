@@ -1,0 +1,32 @@
+.input-div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.row-element-1{
+    width: 45%;
+}
+.row-element-2{
+    width: 50%;
+}
+input{
+    padding: 10px;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 0.375rem;
+}
+
+input::after{
+    border-width: 1.5px;
+}
+label{
+    margin-bottom: 6px;
+}
+
