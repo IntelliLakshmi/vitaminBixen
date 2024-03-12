@@ -114,8 +114,8 @@
     "name": "VitaYummy Hair & Nails Raspberry - 60 stk.",
     "price": 159,
     "currency": "DKK",
-    "rebateQuantity": 0,
-    "rebatePercent": 0,
+    "rebateQuantity": 2,
+    "rebatePercent": 0.10,
     "upsellProductId": "vitayummy-hair-nails-raspberry-vegansk",
     "img": "https://www.med24.dk/imgsrv/2024-02-14/98269/1/vitayummy-hair-og-nails-raspberry-60-stk.jpg?c=IzaseN"
   },
@@ -124,8 +124,8 @@
     "name": "VitaYummy Hair & Nails Raspberry - 60 stk. - Vegansk",
     "price": 189,
     "currency": "DKK",
-    "rebateQuantity": 0,
-    "rebatePercent": 0,
+    "rebateQuantity": 4,
+    "rebatePercent": 0.40,
     "upsellProductId": null,
     "img": "https://www.med24.dk/imgsrv/2024-02-14/98269/1/vitayummy-hair-og-nails-raspberry-60-stk.jpg?c=IzaseN"
   },
@@ -134,8 +134,8 @@
     "name": "A-vitamin, 1500 mcg - 90 tabl.",
     "price": 99,
     "currency": "DKK",
-    "rebateQuantity": 0,
-    "rebatePercent": 0,
+    "rebateQuantity": 5,
+    "rebatePercent": 0.50,
     "upsellProductId": null,
     "img": "https://www.med24.dk/imgsrv/2022-01-17/49954/1/a-vitamin-1500-mcg-90-tabl.jpg?c=I1FMRc"
   }
