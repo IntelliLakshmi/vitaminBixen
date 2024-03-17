@@ -14,6 +14,7 @@ interface NameInputFieldProps {
   placeholder: string;
   formSubmitted?: boolean;
   regex?: RegExp;
+  disabled?: boolean;
   setContactAndDeliveryFormData: (formData: ContactAndDeliveryFormData) => void;
 }
 
@@ -28,6 +29,7 @@ function NameInputField({
   placeholder,
   formSubmitted = false,
   regex = /.*/,
+  disabled = false,
   setContactAndDeliveryFormData,
 }: NameInputFieldProps) {
   const [touched, setTouched] = useState(false);
@@ -76,6 +78,7 @@ function NameInputField({
         id={`${!sameReceiver ? "receiver" : ""}${label}`}
         placeholder={placeholder}
         value={value}
+        disabled={disabled}
         onChange={handleChange}
         onBlur={handleBlur}
       />

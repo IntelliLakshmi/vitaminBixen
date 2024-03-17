@@ -1,4 +1,4 @@
-.formContainer{
+form{
     max-width: 800px;
 }
 
@@ -7,8 +7,4 @@
 }
 select{
     margin-block: 10px;
-}
-
-.bold{
-    font-weight: bold;
 }

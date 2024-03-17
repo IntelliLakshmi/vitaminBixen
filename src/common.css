@@ -19,22 +19,18 @@
 
 .textSizeXLarge {
     font-size: x-large;
-    margin: 0;
 }
 
 .textSizeLarge {
     font-size: large;
-    margin: 0;
 }
 
 .textSizeMedium {
     font-size: medium;
-    margin: 0;
 }
 
 .textSizeSmall {
     font-size: small;
-    margin: 0;
 }
 
 /* Margins Left Right*/
@@ -75,3 +71,13 @@
     cursor: pointer;
     user-select: none;
 }
+
+.bold{
+    font-weight: bold;
+}
+
+*:disabled {
+    background-color: rgb(228, 228, 228);
+    opacity: 0.5;
+  }
+  

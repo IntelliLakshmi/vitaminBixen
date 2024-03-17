@@ -4,5 +4,7 @@ button{
     color: #ffffff;
     border-radius: 40px;
     border-width: 0;
-    padding: 20px;
+    padding: 25px;
+    padding-inline: 40px;
 }
+

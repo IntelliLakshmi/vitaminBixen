@@ -27,7 +27,7 @@ function ContactForm({
         <div className="row-element-1">
           <NameInputField
             formSubmitted={formSubmitted}
-            autofocus={true}
+            autofocus={false}
             formData={formData}
             formDataField="firstName"
             label="Fornavn"

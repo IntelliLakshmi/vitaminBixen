@@ -22,7 +22,7 @@ function ContactAndDelivery({
   const [sameReceiver, setSameReceiver] = useState(true);
 
   return (
-    <div className="formContainer">
+    <form>
       <p className="textSizeLarge bold">Faktureringsoplysninger</p>
       <ContactForm
         formSubmitted={formSubmitted}
@@ -56,7 +56,7 @@ function ContactAndDelivery({
           />
         </div>
       )}
-    </div>
+    </form>
   );
 }
 

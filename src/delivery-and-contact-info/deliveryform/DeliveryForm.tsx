@@ -58,8 +58,9 @@ function DeliveryForm({
             formDataField="city"
             label="By"
             value={formData.city.value}
+            disabled={true}
             setContactAndDeliveryFormData={setContactAndDeliveryFormData}
-            placeholder="Indtast by"
+            placeholder="By"
           />
         </div>
       </div>
