@@ -3,8 +3,9 @@ import {describe, it, expect} from "vitest";
 import { waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../../src/App.tsx";
+import contactAndDelivery from "../../src/delivery-and-contact-info/ContactAndDelivery.tsx";
 
-describe('Testing Contactform', async () => {
+describe(`Testing ${contactAndDelivery.name}`, async () => {
     // Forname Field Testing
     // Testing Forname Empty Field Error Logic
     it('Forname should display error message "Udfyld venligst dette felt" when empty', () => {
@@ -32,6 +33,20 @@ describe('Testing Contactform', async () => {
         await waitFor(() => {
             const errorMessage = screen.queryByText('Udfyld venligst dette felt');
             expect(errorMessage).not.toBeInTheDocument();
+        });
+    });
+    it('Forname should display error message "Udfyld venligst dette felt", when user tries to type with numbers', async () => {
+        render (<App />);
+
+        // Find input field for Fornavn, simulate writing in the field and then click away from the field.
+        const inputField = screen.getByLabelText('Fornavn*');
+        await userEvent.type(inputField, '123');
+        fireEvent.blur(inputField);
+
+        // Search for the error message on the screen
+        await waitFor(() => {
+            const errorMessage = screen.queryByText('Udfyld venligst dette felt');
+            expect(errorMessage).toBeInTheDocument();
         });
     });
 
@@ -64,9 +79,29 @@ describe('Testing Contactform', async () => {
         });
     });
 
+    it('Efternavn should display error message "Udfyld venligst dette felt", when user tries to type with numbers', async () => {
+        render (<App />);
+
+        // Handle Auto Focus
+        fireEvent.change(screen.getByLabelText('Fornavn*'), { target: { value: 'Bob' }})
+
+        // Find input field for Fornavn, simulate writing in the field and then click away from the field.
+        const inputField = screen.getByLabelText('Efternavn*');
+        await userEvent.type(inputField, '123');
+        fireEvent.blur(inputField);
+
+        // Search for the error message on the screen
+        await waitFor(() => {
+            const errorMessage = screen.queryByText('Udfyld venligst dette felt');
+            expect(errorMessage).toBeInTheDocument();
+        });
+    });
+
     //  Email Field Testing
     it('Email should display error message "Udfyld venligst dette felt" when empty', async () => {
         render(<App />);
+
+
 
         const inputField = screen.getByLabelText('Email*');
         fireEvent.change(inputField, { target: { value: '' }});
@@ -200,6 +235,110 @@ describe('Testing Contactform', async () => {
         await waitFor(() => {
             const errorMessage = screen.queryByText('Udfyld venligst dette felt');
             expect(errorMessage).toBeInTheDocument();
+        });
+    });
+
+    // Address Field Testing
+    it('field Adresse should display "Udfyld venligst dette felt" when empty', async () => {
+        render(<App />);
+
+        const inputField = screen.getByLabelText('Vejnavn og husnummer*');
+        fireEvent.change(inputField, { target: { value: '' }});
+        fireEvent.blur(inputField);
+
+        // Search for the error message on the screen
+        await waitFor(() => {
+            const errorMessage = screen.queryByText('Udfyld venligst dette felt');
+            expect(errorMessage).toBeInTheDocument();
+        });
+    });
+
+    it('field Adresse should not display "Udfyld venligst dette felt" when typed in correctly', async () => {
+        render(<App />);
+
+        const inputField = screen.getByLabelText('Vejnavn og husnummer*');
+        fireEvent.change(inputField, { target: { value: 'Testvej 123' }});
+        fireEvent.blur(inputField);
+
+        // Search for the error message on the screen
+        await waitFor(() => {
+            const errorMessage = screen.queryByText('Udfyld venligst dette felt');
+            expect(errorMessage).not.toBeInTheDocument();
+        });
+    });
+
+    // Zip Code Field Testing
+    it('field Postnummer should display "Udfyld venligst dette felt" when empty', async () => {
+        render(<App />);
+
+        const inputField = screen.getByLabelText('Postnummer*');
+        fireEvent.change(inputField, { target: { value: '' }});
+        fireEvent.blur(inputField);
+
+        // Search for the error message on the screen
+        await waitFor(() => {
+            const errorMessage = screen.queryByText('Udfyld venligst dette felt');
+            expect(errorMessage).toBeInTheDocument();
+        });
+    });
+
+    it('field Postnummer should display "Udfyld venligst dette felt" when user typer in chars', async () => {
+        render(<App />);
+
+        // Handle focus
+        await userEvent.type(screen.getByLabelText('Fornavn*'), 'Simon');
+
+        const inputField = screen.getByLabelText('Postnummer*');
+        userEvent.type(inputField, 'dwqklkldwæqoew');
+        fireEvent.blur(inputField);
+
+        // Search for the error message on the screen
+        await waitFor(() => {
+            const errorMessage = screen.queryByText('Udfyld venligst dette felt');
+            expect(errorMessage).toBeInTheDocument();
+        });
+    });
+
+    it('field Postnummer should not display "Udfyld venligst dette felt" when typed in correctly', async () => {
+        render(<App />);
+
+        const inputField = screen.getByLabelText('Postnummer*');
+        fireEvent.change(inputField, { target: { value: '2400' }});
+        fireEvent.blur(inputField);
+
+        // Search for the error message on the screen
+        await waitFor(() => {
+            const errorMessage = screen.queryByText('Udfyld venligst dette felt');
+            expect(errorMessage).not.toBeInTheDocument();
+        });
+    });
+
+    // City Field Testing
+    it('field By should display "Udfyld venligst dette felt" when empty', async () => {
+        render(<App />);
+
+        const inputField = screen.getByLabelText('By*');
+        fireEvent.change(inputField, { target: { value: '' }});
+        fireEvent.blur(inputField);
+
+        // Search for the error message on the screen
+        await waitFor(() => {
+            const errorMessage = screen.queryByText('Udfyld venligst dette felt');
+            expect(errorMessage).toBeInTheDocument();
+        });
+    });
+
+    it('field By should not display "Udfyld venligst dette felt" when typed in correctly', async () => {
+        render(<App />);
+
+        const inputField = screen.getByLabelText('By*');
+        fireEvent.change(inputField, { target: { value: 'København' }});
+        fireEvent.blur(inputField);
+
+        // Search for the error message on the screen
+        await waitFor(() => {
+            const errorMessage = screen.queryByText('Udfyld venligst dette felt');
+            expect(errorMessage).not.toBeInTheDocument();
         });
     });
 });
