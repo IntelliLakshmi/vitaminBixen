@@ -3,6 +3,28 @@
     margin-bottom: 50px;
 }
 
+@media only screen and (max-width: 650px) {
+    .app{
+        margin-inline: 50px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .app{
+        width: 115%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .app{
+        width: 130%;
+    }
+}
+@media only screen and (max-width: 350px) {
+    .app{
+        width: 140%;
+    }
+}
 /* Apply to all HTML elements */
 * {
     font-family: 'Roboto', sans-serif;

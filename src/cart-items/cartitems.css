@@ -59,6 +59,14 @@ img {
     align-items: center;
 }
 
+.upsellItemAndName{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 50%;
+}
+
 .spaceBetween {
     justify-content: space-between;
 }
@@ -178,4 +186,121 @@ img {
 
 .upsellName{
     margin-left: 5px;
+}
+
+
+.mobileTitels{
+    display: none;
+}
+.mobileItemTitle {
+    display: none;
+}
+.mobiledeliveryText{
+    display: none;
+}
+@media only screen and (max-width: 1500px) {
+    .cartImage {
+        width: 100px;
+        object-fit: contain;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .upsellImage {
+        display: none;
+    }
+    .upsellName {
+        font-size: medium;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .titelText {
+        font-size: large;
+    }
+    .upsellText {
+        font-size: small;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .notification span {
+        display: none;
+    }
+    .upsellItemAndName{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .upsellTopContainer{
+        height: fit-content;
+        background-color: #D9D9D9;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .titelText {
+        font-size: medium;
+    }
+    .upsellName {
+        font-size: small;
+    }
+    .upsellText {
+        font-size: small;
+    }
+    .itemCounter {
+        width: 70px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .prices {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+
+    }
+    .prices li {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 200px;
+    }
+
+    .mobileTitels{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .cartImage {
+        width: 80px;
+        object-fit: contain;
+    }
+    .mobileItemTitle {
+        display: block;
+    }
+    .desktopItemTitle {
+        display: none;
+    }
+    .material-icons {
+        font-size: 20px;
+    }
+    .mobiledeliveryText{
+        display: flex;
+    }
+    .desktopdeliveryText{
+        display: none;
+    }
+    .icon-text {
+        font-size: small;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .prices li {
+        width: 150px;
+    }
+
 }

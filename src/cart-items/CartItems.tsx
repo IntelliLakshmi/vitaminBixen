@@ -151,42 +151,59 @@ function CartItems({ basket, setBasket }: CartItemsProps) {
                     return (
                         <>
                             <div className="marginLeftRight30px marginTopBottom25px itemBoxSize flexRow spaceBetween itemRow">
-                                <div>
-                                    <img src={product.img} alt="Image of product" className="cartImage" />
-                                    <div className="flexColumn itemNames">
-                                        <div>
-                                            <p className="textSizeXLarge titelText">{product.name}</p>
-                                            <p className="textSizeSmall">Varenummer: {product.id}</p>
-                                        </div>
-                                        <GiftWrap onChange={() => setGiftWrapOnChange(product.id)} />
-                                        <div className="flexRow deliveryText">
-                                            <i className="material-icons">check_circle</i>
-                                            <p className="textSizeSmall marginLeft10px icon-text">
-                                                På lager - Levering i morgen (bestil inden 22:00)
-                                            </p>
+                                <div className="upsellItemAndName">
+                                    <div className={"mobileItemTitle"}>
+                                        <p className="textSizeXLarge titelText">{product.name}</p>
+                                        <p className="textSizeSmall">Varenummer: {product.id}</p>
+                                    </div>
+                                    <div>
+                                        <img src={product.img} alt="Image of product" className="cartImage"/>
+                                        <div className="flexColumn itemNames">
+                                            <div className={"desktopItemTitle"}>
+                                                <p className="textSizeXLarge titelText">{product.name}</p>
+                                                <p className="textSizeSmall">Varenummer: {product.id}</p>
+                                            </div>
+                                            <GiftWrap onChange={() => setGiftWrapOnChange(product.id)}/>
+                                            <div className="flexRow desktopdeliveryText">
+                                                <i className="material-icons">check_circle</i>
+                                                <p className="textSizeSmall marginLeft10px icon-text">
+                                                    På lager - Levering i morgen (bestil inden 22:00)
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <UpsellItem {...product} />
+                                    <div>
+                                        <UpsellItem {...product} />
+                                    </div>
+                                    <div className="flexRow mobiledeliveryText">
+                                        <i className="material-icons">check_circle</i>
+                                        <p className="textSizeSmall marginLeft10px icon-text">
+                                            På lager - Levering i morgen (bestil inden 22:00)
+                                        </p>
+                                    </div>
                                 </div>
                                 <div className="pricesContainer">
                                     <ul className="prices spaceBetween">
                                         <li>
                                             <div className="itemCounter flexRow">
-                                                <p className="textSizeLarge clickable" onClick={() => minusAmount(product.id)}>-</p>
+                                                <p className="textSizeLarge clickable"
+                                                   onClick={() => minusAmount(product.id)}>-</p>
                                                 <p className="textSizeMedium">{product.amount}</p>
                                                 <p className="textSizeLarge clickable" onClick={() => plusAmount(product.id)}>+</p>
                                             </div>
+                                            <p className={"mobileTitels"}>Antal</p>
                                         </li>
                                         <li>
                                             {product.price} {product.currency}
+                                            <p className={"mobileTitels"}>Pris</p>
                                         </li>
                                         <li>
                                             {rebate > 0 ? `${rebate.toFixed(2)} ${product.currency} Rabat` : `0 ${product.currency}`}
+                                            <p className={"mobileTitels"}>Rabat</p>
                                         </li>
                                         <li>
                                             {totalPrice.toFixed(2)} {product.currency}
+                                            <p className={"mobileTitels"}>Total</p>
                                         </li>
                                     </ul>
                                     <ul className="prices spaceBetween">
