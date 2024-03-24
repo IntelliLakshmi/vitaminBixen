@@ -22,12 +22,41 @@ function Header() {
       </div>
       <div className="lowbarContainer">
         <nav className="nav">
-          <a href="#multi">Multi Vitaminer</a>
-          <a href="#c">C Vitaminer</a>
-          <a href="#d">D Vitaminer</a>
-          <a href="#b">B Vitaminer</a>
-          <div className="more">
+          <div className="dropdown">
+            <a href="#multi">Multi Vitaminer
+              <div className="dropdown-content">
+                <a href="#multi1">Multi 1</a>
+                <a href="#multi2">Multi 2</a>
+                <a href="#multi3">Multi 3</a>
+              </div>
+            </a>
+            
+            <a href="#c">C Vitaminer
+              <div className="dropdown-content">
+                <a href="#multi1">Multi 1</a>
+                <a href="#multi2">Multi 2</a>
+                <a href="#multi3">Multi 3</a>
+              </div>
+            </a>
+
+            <a href="#d">D Vitaminer
+              <div className="dropdown-content">
+                <a href="#multi1">Multi 1</a>
+                <a href="#multi2">Multi 2</a>
+                <a href="#multi3">Multi 3</a>
+              </div>
+            </a>
+
+            <a href="#b">B Vitaminer
+              <div className="dropdown-content">
+                <a href="#multi1">Multi 1</a>
+                <a href="#multi2">Multi 2</a>
+                <a href="#multi3">Multi 3</a>
+              </div>
+            </a>
+            
             <a href="#more">Mere</a>
+           
           </div>
         </nav>
         <div className="cartHeader">
