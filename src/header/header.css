@@ -91,17 +91,21 @@
     .search-bar input {
         border: none;
         padding: 10px 26px;
-        border-radius: 20px;
+        border-radius: 8px;
         color: #3b8d67f3;
         width: 400px;
         font-size: 14px;
         text-decoration: none;
     }
+
+    .search-bar input:focus{
+        outline: none;
+    }
     
 
     .search-bar button {
         position: absolute;
-        right: -30px;
+        right: -22px;
         top: -8px;
         transform: translateY(-50%);
         background: none;
