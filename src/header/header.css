@@ -45,8 +45,10 @@ color: #888;
 
 /* Header styling */
 .header {
-    background-color: #D9D9D9;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    top: 0;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.20);
+    position: fixed;
+    width: 100%;
 }
 
 .topbarContainer,
@@ -60,19 +62,21 @@ color: #888;
 }
 
 .topbarContainer {
-    background: #D9D9D9;
+    background-image: linear-gradient(#3b8d67f3,#73c69fe2);
+   /* background: #73c69ff3;*/
     height: 61px;
 }
 
 .lowbarContainer {
-    background: #C9C9C9;
+    /*box-shadow: 5px 5px rgba(12, 12, 12, 0.325);*/
+    background: #73c69fe2;
     height: 50px;
 }
 
 .logo {
     display: flex;
     padding-left: 50px;
-    color: #5c5c5c;
+    color: #f7f5f5;
     font-weight: bold;
     font-size: 1.5rem;
     align-items: center;
@@ -83,7 +87,7 @@ color: #888;
 }
 
 .search-bar input {
-    border: 1px solid #ddd;
+    border: 1px solid #1f1e1e8a;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 1rem;
@@ -109,11 +113,15 @@ color: #888;
 
 .header-right a {
     text-decoration: none;
-    color: #5c5c5c;
+    color: #f6f6f6;
     margin-left: 1rem;
     font-weight: bold;
 }
 
+.cartHeader {
+    color:#f6f6f6; ;
+
+}
 .cart {
     display: flex;
     align-items: center;
@@ -132,7 +140,7 @@ color: #888;
 
 .nav a {
     text-decoration: none;
-    color: #5c5c5c;
+    color: #f5f2f2;
     margin: 0 1.5rem;
     /*font-weight: bold;*/
     transition: color 0.1s ease;
@@ -140,7 +148,7 @@ color: #888;
 }
 
 .nav a:hover {
-    color: #646cffaa; 
+    color: #2b4a42aa; 
 }
 
 /* Responsive adjustments */
